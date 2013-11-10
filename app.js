@@ -25,6 +25,12 @@ app.use(database.express("mysql://root@127.0.0.1:3306/portal", {
         db.load('./db/user',function(){
         	models.user = db.models.user;        	
         });
+        db.load('./db/group',function(){
+            models.group = db.models.group;           
+        });
+        db.load('./db/meeting',function(){
+            models.group = db.models.meeting;           
+        });
         next();
     }
 }));
