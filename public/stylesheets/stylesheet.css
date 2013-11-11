@@ -1,0 +1,102 @@
+﻿body {
+	margin: 0px;
+	padding: 0px;
+	font-family: tahoma;
+	font-size: 10pt;
+	background-color:#CCCCC5;
+	color:#4C4C48;
+}
+
+label {
+	display:block;
+	font-size:10px;
+	font-weight:400;
+	margin-bottom:5px;
+	margin-left:3px;
+	text-transform:uppercase;
+}
+
+input[type="text"], input[type="password"], select {
+	background:#FFFFFF;
+	border:0px none currentColor;
+	border-radius:2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.196);
+	display:inline-block;
+	font-size:13px;
+	height:30px;
+	margin-bottom:8px;
+	padding:0px 8px;
+	text-align:left;
+	width:186px;
+	-webkit-appearance:none;
+}
+
+input[type="submit"] {
+	background:#8F8F8F;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+	color:#FFFFFF;
+	border:2px solid #8F8F8F;
+	border-radius:2px;
+	cursor:pointer;
+	display:inline-block;
+	font-size:11px;
+	font-weight:700;
+	height:30px;
+	line-height:26px;
+	padding:0px 10px;
+	text-align:left;
+	vertical-align:middle;
+}
+
+input.year {
+	width:96px !important;
+}
+
+input.month, input.day {
+	width:60px !important;
+} 
+
+.wrapper {
+	position:relative;
+	width:100%;
+	min-width:800px;
+	min-height:200px;
+}
+
+.header {
+	position:relative;
+	height:50px;
+	background-color:#4C4C48;
+	color:#CCCCC5;
+	line-height:47px;
+	margin-bottom:10px;
+}
+
+.header .menu {
+	position:relative;
+	left:50%;
+	top:0;
+	width:800px;
+	height:50px;
+	margin-left:-400px;
+}
+
+.middle {
+	position:relative;
+}
+
+.middle  .content{
+	position:relative;
+	left:50%;
+	top:0;
+	width:800px;
+	margin-left:-400px;
+}
+
+.registration input[type="text"], input[type="password"], select {
+	width:224px;
+}
+
+.registrationGroup {
+	margin-bottom:20px;
+}

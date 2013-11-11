@@ -1,12 +1,23 @@
 <!doctype html>
 <html ng-app="portal">
 <head>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js" ></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js" ></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-cookies.min.js" ></script>
+	<script type="text/javascript" src="http://code.angularjs.org/1.2.0/angular.min.js" ></script>
+	<script type="text/javascript" src="http://code.angularjs.org/1.2.0/angular-resource.min.js" ></script>
+	<script type="text/javascript" src="http://code.angularjs.org/1.2.0/angular-cookies.min.js" ></script>
+	<script type="text/javascript" src="http://code.angularjs.org/1.2.0/angular-route.min.js" ></script>
 	<script type="text/javascript" src="/javascripts/portal.js"></script>
+	<script type="text/javascript" src="/javascripts/controllers.js"></script>
+	<script type="text/javascript" src="/javascripts/services.js"></script>
+	<link href="/stylesheets/stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
-<body ng-controller="RegistrCtrl">
-<button ng-click="submit()">Submit</button>
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<div class="menu">
+				123
+			</div>
+		</div>
+		<div ng-view></div>
+	</div>	
 </body>
 </html>

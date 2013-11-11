@@ -1,0 +1,16 @@
+{
+	"pageName" : "Регистрация",
+	"userEmail" : "Электронный адрес:",
+	"userPassword" : "Пароль:",
+	"userPasswordCheck" : "Подтверждение пароля:",
+	"userFirstName" : "Имя:",
+	"userLastName" : "Фамилия:",
+	"userBirth" : "Дата рождения:",
+	"userYear" : "ГГГГ",
+	"userMonth" : "ММ",
+	"userDay" : "ДД",
+	"userGender" : "Пол:",
+	"userM" : "Мужской",
+	"userF" : "Женский",
+	"userNick" : "Никнейм:"
+}

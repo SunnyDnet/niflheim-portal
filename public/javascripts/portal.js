@@ -1,46 +1,20 @@
-angular.module("portal",['ngResource','ngCookies']);
+var portal = angular.module("portal",[
+	"ngResource",
+	"ngCookies",
+	"ngRoute",
+	"portalCtrl",
+	"portalServices"
+]);
 
-function RegistrCtrl($scope,$http){
-	$scope.submit = function () {
-		var userObject = {
-				firstName : "Alex",
-		        lastName : "Fedorov",
-		        age : 16,
-		       	email : "test@gmail.com",
-		        birthDate : new Date(),
-		        male : true,
-		        nickName : "test1",
-		        APIToken : "testToken"
-			};
-
-		$http({
-			method: "POST",
-			url : "/user/registration",
-			data : userObject,
-			responseType : "json"
-		}).
-		success(function(data){
-			console.log(data);
-		});
-	}
-}
-
-function SubmitCtrl($scope,$http){
-	$scope.submit = function () {
-		var userObject = {
-				firstName : "Alex",
-		        lastName : "Fedorov",
-		        age : 16,
-		       	email : "test@gmail.com",
-		        birthDate : new Date(),
-		        male : true,
-		        nickName : "test1",
-		        APIToken : "testToken"
-			},
-			response = $http({
-				method: "POST",
-				url : "/user/registration",
-				data : userObject
+portal.config(["$routeProvider", 
+	function($routeProvider) {
+		$routeProvider.
+			when("/",{
+				templateUrl : "/templates/registration.html",
+				controller : "RegistrCtrl"
+			}).
+			otherwise({
+				redirecTo: '/'
 			});
 	}
-}
+]);

@@ -1,0 +1,42 @@
+﻿<div class="middle">
+	<div class="content">
+		<h2 ng-bind=langPackage.pageName></h2>
+		<form name="registration" class="registration">
+			<div class="registrationGroup">
+				<label ng-bind="langPackage.userEmail"></label>
+				<input type="text" name="email" />
+			</div>
+			<div class="registrationGroup">
+				<label ng-bind="langPackage.userPassword"></label>
+				<input type="password" name="password" />
+				<label ng-bind="langPackage.userPasswordCheck"></label>
+				<input type="password" name="passwordcheck" />
+			</div>
+			<div class="registrationGroup">
+				<label ng-bind="langPackage.userFirstName"></label>
+				<input type="text" name="firstname" />
+				<label ng-bind="langPackage.userLastName"></label>
+				<input type="text" name="lastname" />
+			</div>
+			<div class="registrationGroup">
+				<label ng-bind="langPackage.userLastName"></label>
+				<input type="text" class="year" name="birthyaer" placeholder="ГГГГ" maxlength="4" />
+				<input type="text" class="month" name="birthmonth" placeholder="ММ" maxlength="2" />
+				<input type="text" class="day" name="birthday" placeholder="ДД" maxlength="2" />
+				<label ng-bing="langPackage.userGender"></label>
+				<select name="gender">
+					<option value=""></option>
+					<option value="M" ng-bind="langPackage.userM"></option>
+					<option value="F" ng-bind="langPackage.userF"></option>
+				</select>
+			</div>
+			<div class="registrationGroup">
+				<label ng-bind="langPackage.userNick"></label>
+				<input type="text" name="nickname" />
+			</div>
+			<div class="registrationGroup">
+				<input type="submit" />
+			</div>
+		</form>
+	</div>
+</div>
