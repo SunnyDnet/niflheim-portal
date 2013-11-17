@@ -6,7 +6,7 @@
 var express = require('express'),
 	database = require('orm'),
 	routes = require('./routes'),
-	api = require('./routes/restapi'),
+	userApi = require('./routes/userapi'),
 	http = require('http'),
 	path = require('path');
 
@@ -29,7 +29,7 @@ app.use(database.express("mysql://root@127.0.0.1:3306/portal", {
             models.group = db.models.group;           
         });
         db.load('./db/meeting',function(){
-            models.group = db.models.meeting;           
+            models.meeting = db.models.meeting;           
         });
         next();
     }
@@ -39,7 +39,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);
 
-app.post('/user/registration', api.registration);
+app.post('/user/registration', userApi.registration);
+
+app.get('/user/:id', userApi.loginUser);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

@@ -13,6 +13,10 @@ portal.config(["$routeProvider",
 				templateUrl : "/templates/registration.html",
 				controller : "RegistrCtrl"
 			}).
+			when("/user/:id",{
+				templateUrl : "/templates/user.html",
+				controller : "UserCtrl"
+			}).
 			otherwise({
 				redirecTo: '/'
 			});

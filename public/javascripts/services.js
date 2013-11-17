@@ -12,3 +12,20 @@ portalServices.factory("LangPack", ["$resource",
 			}
 		);
 	}]);
+
+portalServices.factory("userFuctions", ["$resource", 
+	function($resource){
+		return {
+			getUser : function (){
+				return $resource("/user/:id",
+						{id:"@id"},
+						{get:
+							{
+								method:"GET",
+								params:{id:"@id"}
+							}
+						}
+					);
+			}
+		};
+	}]);

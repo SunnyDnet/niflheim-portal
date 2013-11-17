@@ -5,20 +5,16 @@
  */
 module.exports = function (db, cb) {
     db.define('user', {
+        id : String,
         firstName : String,
         lastName : String,
-        age : Date,
+        password : String,
+        email : String,
         regDate : Date,
         birthDate : Date,
         male : Boolean,
         nickName : String,
         APIToken : String
-    },{
-    	methods : {
-    		getUserGroups : function(){},
-    		getUserMeeting : function(){},
-    		createGroup : function(){}
-    	}
-    });
+    },{});
     return cb();
 };

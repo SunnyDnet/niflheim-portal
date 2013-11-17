@@ -16,7 +16,7 @@ label {
 	text-transform:uppercase;
 }
 
-input[type="text"], input[type="password"], select {
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], select {
 	background:#FFFFFF;
 	border:0px none currentColor;
 	border-radius:2px;
@@ -27,7 +27,7 @@ input[type="text"], input[type="password"], select {
 	margin-bottom:8px;
 	padding:0px 8px;
 	text-align:left;
-	width:186px;
+	width:224px;
 	-webkit-appearance:none;
 }
 
@@ -91,10 +91,6 @@ input.month, input.day {
 	top:0;
 	width:800px;
 	margin-left:-400px;
-}
-
-.registration input[type="text"], input[type="password"], select {
-	width:224px;
 }
 
 .registrationGroup {

@@ -1,30 +1,37 @@
 ﻿<div class="middle">
 	<div class="content">
 		<h2 ng-bind=langPackage.pageName></h2>
-		<form name="registration" class="registration">
+		<form name="formReg" class="registration">
 			<div class="registrationGroup">
 				<label ng-bind="langPackage.userEmail"></label>
-				<input type="text" name="email" />
+				<input type="email" name="email" ng-model="user.email" required/>
+				<span ng-show="formReg.$error.email">Invalid field</span>
 			</div>
 			<div class="registrationGroup">
 				<label ng-bind="langPackage.userPassword"></label>
-				<input type="password" name="password" />
+				<input type="password" name="password" ng-model="user.password" required ng-minlength="3" ng-maxlength="10"/>
+				<span ng-show="formReg.password.$error.minlength || formReg.password.$error.maxlength">Invalid field</span>
 				<label ng-bind="langPackage.userPasswordCheck"></label>
-				<input type="password" name="passwordcheck" />
+				<input type="password" name="passwordcheck" ng-model="user.checkPassword" required ng-minlength="3" ng-maxlength="10"/>
+				<span ng-show="formReg.passwordcheck.$error.minlength || formReg.passwordcheck.$error.maxlength">Invalid field</span>
+				<span ng-show="user.password != user.checkPassword">Password don't match</span>
 			</div>
 			<div class="registrationGroup">
 				<label ng-bind="langPackage.userFirstName"></label>
-				<input type="text" name="firstname" />
+				<input type="text" name="firstname" ng-model="user.firstName" required ng-pattern="patters.userFirstName" ng-minlength="3"/>
+				<span ng-show="formReg.firstname.$error.pattern || formReg.firstname.$error.minlength">Invalid field</span>
 				<label ng-bind="langPackage.userLastName"></label>
-				<input type="text" name="lastname" />
+				<input type="text" name="lastname" ng-model="user.lastName" required ng-pattern="patters.userFirstName" ng-minlength="3"/>
+				<span ng-show="formReg.lastname.$error.pattern || formReg.lastname.$error.minlength">Invalid field</span>
 			</div>
 			<div class="registrationGroup">
-				<label ng-bind="langPackage.userLastName"></label>
-				<input type="text" class="year" name="birthyaer" placeholder="ГГГГ" maxlength="4" />
-				<input type="text" class="month" name="birthmonth" placeholder="ММ" maxlength="2" />
-				<input type="text" class="day" name="birthday" placeholder="ДД" maxlength="2" />
-				<label ng-bing="langPackage.userGender"></label>
-				<select name="gender">
+				<label ng-bind="langPackage.userBirth"></label>
+				<input type="number" class="year" name="birthyaer" placeholder="ГГГГ" maxlength="4" ng-model="user.YYYY" required min="1900" max="2020"/>
+				<input type="number" class="month" name="birthmonth" placeholder="ММ" maxlength="2" ng-model="user.MM" required min="1" max="12"/>
+				<input type="number" class="day" name="birthday" placeholder="ДД" maxlength="2" ng-model="user.DD" required min="1" max="31"/>
+				<span ng-show="formReg.birthyaer.$error.min || formReg.birthyaer.$error.max || formReg.birthmonth.$error.min || formReg.birthmonth.$error.max ||formReg.birthday.$error.min || formReg.birthday.$error.max">Invalid field</span>
+				<label ng-bind="langPackage.userGender"></label>
+				<select name="gender" ng-model="user.gender">
 					<option value=""></option>
 					<option value="M" ng-bind="langPackage.userM"></option>
 					<option value="F" ng-bind="langPackage.userF"></option>
@@ -32,10 +39,11 @@
 			</div>
 			<div class="registrationGroup">
 				<label ng-bind="langPackage.userNick"></label>
-				<input type="text" name="nickname" />
+				<input type="text" name="nickname" ng-model="user.nickName" required/>
+				<span ng-show="formReg.nickname.$error">Invalid field</span>
 			</div>
 			<div class="registrationGroup">
-				<input type="submit" />
+				<input type="submit" ng-click="submit()"/>
 			</div>
 		</form>
 	</div>
