@@ -15,6 +15,7 @@ ctrl.controller("RegistrCtrl",["$scope", "$http", "$location","LangPack",
 				data : $scope.user,
 			}).
 			success(function(data){
+				console.log(data)
 				if (typeof(data.userId) === "number"){
 					$location.path("/user/" + data.userId);
 				}

@@ -11,7 +11,7 @@ exports.registration = function(req, res){
 			(err != null ? console.log(err) : res.json({userId : items[0].id}));
 		});
 	} else {
-		res.json(reqBody.errors);
+		res.json({errors : reqBody.errors});
 	}	
 };
 exports.loginUser = function(req, res){
@@ -73,13 +73,13 @@ function prepareUserModel (model){
 
 function checkNames (value, cb){
 	var error;
-	((value.length > 3 && value.length < 10) ? error = false : error = true); 
+	((value.length >= 3 && value.length <= 10) ? error = false : error = true); 
 	return cb(error, value);
 }
 
 function checkPassword (value, cb){
 	var error;
-	((value.length > 3) ? error = false : error = true); 
+	((value.length >= 3) ? error = false : error = true); 
 	return cb(error, value);
 }
 
