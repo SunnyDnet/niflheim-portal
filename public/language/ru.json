@@ -12,5 +12,7 @@
 	"userGender" : "Пол:",
 	"userM" : "Мужской",
 	"userF" : "Женский",
-	"userNick" : "Никнейм:"
+	"userNick" : "Никнейм:",
+	"fieldError" : "Поле заполнено неправильно",
+	"passwordValidation" : "Пароли не совпадают"
 }

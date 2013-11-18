@@ -27,7 +27,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="num
 	margin-bottom:8px;
 	padding:0px 8px;
 	text-align:left;
-	width:224px;
+	width:186px;
 	-webkit-appearance:none;
 }
 
@@ -93,6 +93,98 @@ input.month, input.day {
 	margin-left:-400px;
 }
 
+select {
+	width:204px;
+}
+
 .registrationGroup {
 	margin-bottom:20px;
+}
+
+/* 	#AA5560 - фон ошибки
+	#AD2A3A - текст ошибки
+	#A0A467 - фон всё ок
+	#8C8E59 - текст всё ок
+ */
+.registrationGroup .ng-invalid {
+	background-color:#AA5560;
+}
+
+.registrationGroup .ng-pristine {
+	background-color:#FFFFFF;
+}
+
+.registrationGroup span {
+	margin-left:10px;
+	vertical-align:top;
+	line-height:30px;"
+}
+ 
+.registrationGroup span.error {
+	color:#AD2A3A;
+}
+
+.registrationGroup span.ok {
+	color:#8C8E59;
+}
+
+
+
+
+
+
+.profile {
+	position:relative;
+}
+
+.profile .userNickname {
+	margin-left:10px;
+}
+
+.profile .userAvatar {
+	float:left;
+	width:200px;
+	height:350px;
+	/* максимально 200х350 */
+	background:#FFFFFF;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+	border-radius:3px;
+}
+
+.profile .userInfo {
+	float:left;
+	margin:5px 0 0 20px;
+	padding:0;
+}
+
+.profile .userInfoGroup {
+	margin:0 0 20px 0;
+	padding:0;
+	list-style-type:none;
+	width:580px;
+}
+
+.profile .userInfoGroup li {
+	margin:0 0 2px 0;
+}
+
+.profile .userInfoGroup p {
+	margin:0;
+	float:left;
+}
+
+.profile .userInfoGroup p.item {
+	width:120px;
+	margin-right:10px;
+	color:#7F7F79;
+	text-align:right;
+}
+
+.profile .userInfoGroup p.data {
+	width:450px;
+	position:relative;
+}
+
+.profile .userInfoGroup br {
+	clear:both;
 }
