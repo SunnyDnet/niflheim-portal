@@ -1,0 +1,24 @@
+﻿<div class="middle">
+	<div class="content">
+		<div class="profile">
+			<h2 class="userNickname" ng-bind="user.nickName"></h2>
+			<div class="userAvatar" style="background-image:url(images/avatars/kaelnaar.jpg);"></div>
+			<div class="userInfo">
+				<ul class="userInfoGroup">
+					<li><p class="item" ng-bind="langPackage.userRealFullName"></p><p class="data" id="name" ng-bind="user.fullName"></p><br/></li>
+					<li><p class="item" ng-bind="langPackage.userEmail"></p><p class="data" id="name" ng-bind="user.email"></p><br/></li>
+					<li><p class="item" ng-bind="langPackage.userLocation"></p><p class="data" id="location">{location from DB}</p><br/></li>
+					<li><p class="item" ng-bind="langPackage.userAge"></p><p class="data" id="age" ng-bind="user.age">{calculate Age}</p><br/></li>
+					<li><p class="item" ng-bind="langPackage.userGender"></p><p class="data" id="gender" ng-bind="user.gender"></p><br/></li>
+					<li><p class="item" ng-bind="langPackage.userRegDate"></p><p class="data" id="name" ng-bind="user.regDate"></p><br/></li>
+				</ul>
+				<ul class="userInfoGroup">
+					<li>{tags}</li>
+					<li><p class="item" ng-bind="langPackage.userAbout"></p><p class="data" id="biography">
+						{о себе}
+					</p><br/></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

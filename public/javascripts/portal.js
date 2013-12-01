@@ -14,7 +14,7 @@ portal.config(["$routeProvider",
 				controller : "RegistrCtrl"
 			}).
 			when("/user/:id",{
-				templateUrl : "/templates/user.html",
+				templateUrl : "/templates/userProfile.html",
 				controller : "UserCtrl"
 			}).
 			otherwise({

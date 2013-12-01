@@ -47,4 +47,21 @@
 			</div>
 		</form>
 	</div>
+	<div class="content right">
+		<form name="formReg" class="singIn">
+			<div class="singInGroup">
+				<label ng-bind="langPackage.userEmail"></label>
+				<input type="email" name="email" ng-model="signInfo.email" required/>
+				<span class="error" ng-show="formReg.$error.email" ng-bind="langPackage.fieldError"></span>
+			</div>
+			<div class="singInGroup">
+				<label ng-bind="langPackage.userPassword"></label>
+				<input type="password" name="password" ng-model="signInfo.password" required/>
+				<span class="error" ng-show="formReg.$error.email" ng-bind="langPackage.fieldError"></span>
+			</div>
+			<div class="singInGroup">
+				<input type="submit" ng-click="signIn()"/>
+			</div>
+		</form>
+	</div>
 </div>

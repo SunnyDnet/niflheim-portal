@@ -14,5 +14,12 @@
 	"userF" : "Женский",
 	"userNick" : "Никнейм:",
 	"fieldError" : "Поле заполнено неправильно",
-	"passwordValidation" : "Пароли не совпадают"
+	"passwordValidation" : "Пароли не совпадают",
+	"userRealFullName" : "Настоящее имя:",
+	"userLocation" : "Местоположение:",
+	"userAge" : "Возраст:",
+	"userAbout" : "О себе:",
+	"userGender" : "Пол:",
+	"userEmail" : "Email",
+	"userRegDate" : "Дата регистрации"
 }

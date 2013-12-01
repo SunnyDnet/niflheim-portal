@@ -41,7 +41,8 @@ app.get('/', routes.index);
 
 app.post('/user/registration', userApi.registration);
 
-app.get('/user/:id', userApi.loginUser);
+app.get('/user/:uuid/:id', userApi.loginUser);
+app.post('/user/checkuser', userApi.checkUser);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

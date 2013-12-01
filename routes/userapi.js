@@ -8,17 +8,73 @@ exports.registration = function(req, res){
 	var reqBody = prepareUserModel(req.body);
 	if(reqBody.errors.length == 0){
 		req.models.user.create(new Array(reqBody.user), function(err,items){
-			(err != null ? console.log(err) : res.json({userId : items[0].id}));
+			if (err == null) { 
+				res.set({
+					UUID : items[0].APIToken
+				});
+				res.cookie('UUID', items[0].APIToken, {maxAge: 900000});
+				res.json({
+					user : {
+						userId : items[0].id,
+						UUID : items[0].APIToken
+					}
+				});
+			} else {
+				console.log(err);
+				res.json({error : err});
+			}
 		});
 	} else {
 		res.json({errors : reqBody.errors});
 	}	
 };
 exports.loginUser = function(req, res){
-	req.models.user.get(req.params.id,function(err, user){
-		(err != null ? console.log(err) : res.json({currentUser : user}));
+	if (req.params.uuid != undefined && req.params.uuid != null){
+		req.models.user.find({
+			id : req.params.id, 
+			APIToken : req.params.uuid
+		}, 
+		function(err, user){
+			if (err == null && user.length > 0){
+				res.cookie('UUID', user[0].APIToken, {maxAge: 900000});
+				res.json({
+					currentUser : userViewModel(user[0]),
+					UUID : user[0].APIToken
+				})
+			} else {
+				console.log(err);
+				res.json({error : err});
+			}
+		});
+	} else {
+		res.json({error : "ERROR"});
+	}
+}
+exports.checkUser = function(req,res){
+	req.models.user.find({
+		email : req.body.email,
+		password : req.body.password
+	}, function(err, user){
+		if(user.length > 0){
+			res.json({
+				exist : true,
+				userId : user[0].id,
+				UUID : user[0].APIToken
+			})
+		} else {
+			console.log(err);
+			res.json({error : err});
+		}
 	});
 }
+
+
+/**
+ *
+ *	Additional functions
+ *
+ */
+
 
 function s4() {
   return Math.floor((1 + Math.random()) * 0x10000)
@@ -102,4 +158,19 @@ function checkGender (value,cb){
 
 function checkEmail (value, cb){
 	return cb(false, value);
+}
+
+function userViewModel (user){
+	return {
+		fullName : user.firstName + " " + user.lastName,
+		regDate : user.regDate,
+		age : (function(date){
+			return Math.floor((new Date() - date) / 1000 / 31536000);
+		})(user.birthDate),
+		email : user.email,
+		gender : (function(male){
+			return ((male) ? "Молодой человек" : "Девушка")
+		})(user.male),
+		nickName : user.nickName
+	}
 }
