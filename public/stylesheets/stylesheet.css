@@ -1,8 +1,15 @@
-﻿body {
+﻿/* 	#AA5560 - фон ошибки
+	#AD2A3A - текст ошибки
+	#A0A467 - фон всё ок
+	#8C8E59 - текст всё ок
+ */
+
+body {
 	margin: 0px;
 	padding: 0px;
-	font-family: tahoma;
+	font-family: "Trebuchet MS", "Helvetica", "Helvetica Neue", "Arial", sans-serif;
 	font-size: 10pt;
+	line-height:1.4em;
 	background-color:#CCCCC5;
 	color:#4C4C48;
 }
@@ -16,7 +23,7 @@ label {
 	text-transform:uppercase;
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="number"], select {
+input[type="text"], input[type="password"], select {
 	background:#FFFFFF;
 	border:0px none currentColor;
 	border-radius:2px;
@@ -31,7 +38,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="num
 	-webkit-appearance:none;
 }
 
-input[type="submit"] {
+input[type="submit"], input[type="button"] {
 	background:#8F8F8F;
 	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
 	color:#FFFFFF;
@@ -46,140 +53,910 @@ input[type="submit"] {
 	padding:0px 10px;
 	text-align:left;
 	vertical-align:middle;
+	margin:0;
 }
 
 input.year {
-	width:96px !important;
+	width:82px !important;
 }
 
 input.month, input.day {
-	width:60px !important;
+	width:47px !important;
 } 
+
+h1, h2, h3, h4, h5, h6 {
+	margin:0 0 10px 0;
+}
+
 
 .wrapper {
 	position:relative;
 	width:100%;
-	min-width:800px;
+	min-width:600px;
 	min-height:200px;
 }
 
 .header {
 	position:relative;
-	height:50px;
-	background-color:#4C4C48;
+	height:35px;
+	background:#4C4C48;
 	color:#CCCCC5;
-	line-height:47px;
-	margin-bottom:10px;
+	line-height:35px;
 }
 
 .header .menu {
 	position:relative;
-	left:50%;
-	top:0;
-	width:800px;
-	height:50px;
-	margin-left:-400px;
+	margin:0 auto;
+	text-align:center;
 }
+
+.header .menu ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+.header .menu ul .menuitem {
+	margin:0 0 0 -4px;
+	padding:0 16px;
+	display:inline-block;
+	cursor:pointer;
+	transition: background 0.2s ease-in-out;
+}
+
+.header .menu ul .menuitem.active {
+	background-position:50% 100%;
+	background-repeat:no-repeat;
+	background-image:url(../images/activemenuitem.png)
+}
+
+.header .menu ul .menuitem:hover {
+	background-color:#666660;
+	color:#ffffff;
+}
+	
+.header .left {
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:5;
+}
+
+.header .right {
+	position:absolute;
+	right:0;
+	top:0;
+	z-index:5;
+}
+
+.header .enter {
+	padding:0 20px;
+	cursor:pointer;
+	transition: background 0.2s ease-in-out;
+}
+
+.header .account {
+	padding:0 0 0 12px;
+	cursor:pointer;
+	transition: background 0.2s ease-in-out;
+}
+
+.header .account .avatar {
+	float:right;
+	width:35px;
+	height:35px;
+	margin-left:10px;
+	background-color:#353530;
+	background-position:0 0;
+	background-repeat:no-repeat;
+	background-size:35px 35px;
+}
+
+.header .account.active {
+	background-position:35% 100%;
+	background-repeat:no-repeat;
+	background-image:url(../images/activemenuitem.png)
+}
+
+.header .account:hover, .header .enter:hover {
+	background-color:#666660;
+	color:#ffffff;
+}
+
+.header .logo {
+	position:relative;
+	padding:0 10px;
+	width:91px;
+	cursor:pointer;
+}
+
+.header .logo .project {
+	float:left;
+	width:11px;
+	height:35px;
+	background:url(../images/logo.png) 0 50% no-repeat;
+	transition: width 0.2s ease-in-out;
+}
+
+.header .logo .thirteen {
+	float:left;
+	width:15px;
+	height:35px;
+	background:url(../images/logo.png) -76px 50% no-repeat;
+}
+
+.header .logo:hover .project {
+	width:76px;
+}
+
+
 
 .middle {
 	position:relative;
+	min-height:200px;
 }
 
 .middle  .content{
 	position:relative;
-	left:50%;
-	top:0;
-	width:800px;
-	margin-left:-400px;
+	min-width:600px;
+	max-width:800px;
+	margin:0 auto;
+	min-height:200px;
+	text-align:center;
 }
 
-select {
-	width:204px;
+/* Регистрация и вход */
+
+.enter_registration input[type="text"], .enter_registration input[type="password"], .enter_registration select {
+	width:184px;
+}
+
+.enter_registration {
+	width:600px;
+	margin:18px auto 0 auto;
+}
+
+.enterform {
+	float:left;
+	width:299px;
+	border-right:1px solid #BFBFB5;
+	padding-top:15px;
+}
+
+.enterGroup {
+	margin-bottom:20px;
+	position:relative;
+	top:0px;
+}
+
+.enter_end {
+	width:184px;
+	padding-left:72px !important;
+}
+
+.enterGroup p {
+	margin:0 0 2px 0;
+	text-align:right;
+	padding:0 58px 0 0;
+}
+
+.enterGroup p.error {
+	height:16px;
+	margin-bottom:10px;
+	color:#AD2A3A;
+}
+
+.enterGroup p.ng-invalid {
+	height:16px;
+	margin-bottom:10px;
+	color:#AD2A3A;
+}
+.enterGroup .fielderror {
+	background:#fff url(../images/fielderror.png) 0px 50% repeat-y;
+}
+
+.enterGroup .ng-invalid {
+	background:#fff url(../images/fielderror.png) 0px 50% repeat-y;
+}
+
+.enterGroup span.ok {
+	color:#8C8E59;
+}
+
+.registrationform {
+	float:left;
+	width:300px;
+	padding-top:15px;
 }
 
 .registrationGroup {
 	margin-bottom:20px;
+	position:relative;
+	top:0px;
 }
 
-/* 	#AA5560 - фон ошибки
-	#AD2A3A - текст ошибки
-	#A0A467 - фон всё ок
-	#8C8E59 - текст всё ок
- */
-.registrationGroup .ng-invalid {
-	background-color:#AA5560;
+.registration_button {
+	width:184px;
+	padding-left:30px !important;
 }
 
-.registrationGroup .ng-pristine {
-	background-color:#FFFFFF;
+.registration_next {
+	width:124px;
+	margin-left:5px !important;
+	padding-left:25px !important;
 }
 
-.registrationGroup span {
-	margin-left:10px;
-	vertical-align:top;
-	line-height:30px;"
+.registration_send {
+	width:124px;
+	margin-left:5px !important;
+	padding-left:23px !important;
 }
- 
-.registrationGroup span.error {
+
+.registration_end {
+	width:184px;
+	padding-left:22px !important;
+}
+
+.registrationGroup p {
+	margin:0 0 2px 0;
+	text-align:left;
+	padding:0 0 0 58px;
+}
+
+.registrationGroup p.error {
+	height:16px;
+	margin-bottom:10px;
 	color:#AD2A3A;
+}
+
+.registrationGroup p.ng-invalid {
+	height:16px;
+	margin-bottom:10px;
+	color:#AD2A3A;
+}
+
+.registrationGroup .fielderror {
+	background:#fff url(../images/fielderror.png) 0px 50% repeat-y;
+}
+
+.registrationGroup .ng-invalid {
+	background:#fff url(../images/fielderror.png) 0px 50% repeat-y;
 }
 
 .registrationGroup span.ok {
 	color:#8C8E59;
 }
 
+
+/* Профиль пользователя */
+
 .profile {
-	position:relative;
+	margin-top:20px;
 }
 
-.profile .userNickname {
-	margin-left:10px;
-}
-
-.profile .userAvatar {
-	float:left;
-	width:200px;
-	height:350px;
-	/* максимально 200х350 */
-	background:#FFFFFF;
+.profile .profileBlockOne {
+	background-color:#F2F2EA;
+	margin:0 auto 15px auto;
+	width:600px;
+	height:80px;
+	border-radius:4px;
 	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
-	border-radius:3px;
 }
 
-.profile .userInfo {
+.profile .user-avatar {
 	float:left;
-	margin:5px 0 0 20px;
-	padding:0;
+	margin:0 20px 0 0;
+	width:80px;
+	height:80px;
+	background-position:0 50%;
+	background-repeat:no-repeat;
+	background-size:100% auto;
+	border-radius:4px 0 0 4px;
 }
 
-.profile .userInfoGroup {
-	margin:0 0 20px 0;
-	padding:0;
-	list-style-type:none;
-	width:580px;
+.profile .user-nickname {
+	float:left;
+	text-align:left;
+	padding-top:23px;
+	max-width:400px;
+	cursor:default;
 }
 
-.profile .userInfoGroup li {
-	margin:0 0 2px 0;
-}
-
-.profile .userInfoGroup p {
+.profile .user-nickname p {
 	margin:0;
+	font-size:12px;
+	line-height:1em;
+}
+
+.profile .user-nickname .name {
+	font-size:20px;
+}
+
+.profile .user-nickname .quote {
+	color:#7F7F79;
+}
+
+.profile .profileBlockTwo {
+	margin:0 auto 20px auto;
+	width:600px;
+}
+
+.profile .profileBlockTwo .user-com {
+	float:left;
+	margin:0;
+	text-align:left;
+	width:80px;
+}
+
+.profile .profileBlockTwo .user-info {
+	float:left;
+	margin:0;
+	text-align:left;
+	width:520px;
+	cursor:default;
+}
+
+.profile .group {
+	width:187px;
+	margin:0 5px 1px 2px;
+	padding:0px 10px 0px 136px;
+	position:relative;
+	text-align:left;
+	font-size:12px;
+}
+
+.profile .group2 {
+	width:292px; /* 375 */
+	margin:0 5px 1px 2px;
+	padding:0px 10px 0px 136px;
+	position:relative;
+	text-align:left;
+	font-size:12px;
+}
+
+.profile .groupname {
+	position:absolute;
+	left:18px;
+	color:#7F7F79;
+}
+
+
+/* Список гильдий пользователя */
+
+.guildlist {
+	margin:20px auto 0 auto;
+	width:600px;
+}
+
+.guildlist .guilditem {
+	background-color:#F2F2EA;
+	margin:0 0 7px 0;
+	width:600px;
+	height:80px;
+	border-radius:4px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+	cursor:pointer;
+}
+
+.guildlist .guilditem .guild-logo {
+	float:left;
+	margin:0 20px 0 0;
+	width:80px;
+	height:80px;
+	background-position:0 50%;
+	background-repeat:no-repeat;
+	background-size:100% auto;
+	border-radius:4px 0 0 4px;
+}
+
+.guildlist .guilditem .guild-name {
+	float:left;
+	text-align:left;
+	padding-top:23px;
+	max-width:480px;
+}
+
+.guildlist .guilditem .guild-name p {
+	margin:0;
+	font-size:12px;
+	line-height:1em;
+}
+
+.guildlist .guilditem .guild-name .name {
+	font-size:20px;
+}
+
+.guildlist .guilditem .guild-name .desc {
+	color:#7F7F79;
+}
+
+.guildlist .guilditem:hover {
+	background-color:#FFFFF9;
+}
+
+/* Страница гильдии */
+
+.guild {
+	margin:20px auto 0 auto;
+	width:800px;
+}
+
+.guild .guildheader {
+	width:800px;
+	height:155px;
+	border-radius:6px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+	margin-bottom:10px;
+}
+
+.guild .guildheader .logo {
+	height:120px;
+	border-radius:6px 6px 0 0;
+	background-color:#7F7F7B;
+	background-repeat:no-repeat;
+	background-position:0 0;
+}
+
+.guild .guildheader .namebar {
+	height:35px;
+	border-radius:0 0 6px 6px;
+	line-height:35px;
+	padding:0 15px;
+	background-color:#F2F2EA;
+	text-align:left;
+	cursor:default;
+}
+
+.guild .guildheader .namebar p {
+	margin:0;
+}
+
+.guild .guildheader .namebar p.name {
 	float:left;
 }
 
-.profile .userInfoGroup p.item {
-	width:120px;
-	margin-right:10px;
-	color:#7F7F79;
-	text-align:right;
+.guild .guildheader .namebar p.status {
+	float:right;
+	color:#8C8C86;
 }
 
-.profile .userInfoGroup p.data {
-	width:450px;
+.guild .guildcontent {
+	width:800px;
+}
+
+.guild .guildcontent .description {
+	width:770px;
+	margin:0 15px 15px 15px;
+	text-align:justify;
+	cursor:default;
+}
+
+.guild .guildcontent .leftblock {
+	float:left;
+	width:225px;
+}
+
+.guild .guildcontent .meetings {
+	float:left;
+	width:315px;
+	margin:0 15px;
+}
+
+.guild .guildcontent .meetings .meetingitem {
+	margin-bottom:10px;
+}
+
+.guild .guildcontent .meetings .meetingitem .post {
+	position:relative;
+	min-height:80px;
+	margin-bottom:10px;
+	padding-bottom:10px;
+	background-color:#F2F2EA;
+	border-radius:4px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.guild .guildcontent .meetings .meetingitem .post br {
+	clear:both;
+}
+
+.guild .guildcontent .meetings .meetingitem .post .date{
+	position:absolute;
+	left:15px;
+	top:0;
+	background:#444441;
+	color:#fff;
+	font-size:10px;
+	width:30px;
+	height:30px;
+	border-radius:0 0 2px 2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+	cursor:default;
+}
+
+.guild .guildcontent .meetings .meetingitem .post .date p {
+	margin:0;
+	line-height:1px;
+}
+
+.guild .guildcontent .meetings .meetingitem .post .date .day {
+	font-size:20px;
+	margin-top:4px;
+	letter-spacing:-1px;
+}
+
+.guild .guildcontent .meetings .meetingitem .post .date .month {
+	margin-top:-1px;
+}
+
+.guild .guildcontent .meetings .meetingitem .post .type{
+	position:absolute;
+	left:50px;
+	top:0;
+	background:#7F7F79;
+	color:#FFFFF7;
+	font-size:10px;
+	width:30px;
+	height:30px;
+	border-radius:0 0 2px 2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.guild .guildcontent .meetings .meetingitem .post .accept{
+	position:absolute;
+	right:85px;
+	top:0;
+	background:#A0A467;
+	color:#FFFFF7;
+	font-size:10px;
+	width:30px;
+	height:30px;
+	border-radius:0 0 2px 2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.guild .guildcontent .meetings .meetingitem .post .wait{
+	position:absolute;
+	right:50px;
+	top:0;
+	background:#7F7F79;
+	color:#FFFFF7;
+	font-size:10px;
+	width:30px;
+	height:30px;
+	border-radius:0 0 2px 2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.guild .guildcontent .meetings .meetingitem .post .cansel{
+	position:absolute;
+	right:15px;
+	top:0;
+	background:#AA5560;
+	color:#FFFFF7;
+	font-size:10px;
+	width:30px;
+	height:30px;
+	border-radius:0 0 2px 2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.guild .guildcontent .meetings .meetingitem .post .name {
+	margin-top:20px;
+	margin-bottom:-5px;
+	text-align:left;
+	padding:0 15px;
+	letter-spacing:-1px;
+}
+
+.guild .guildcontent .meetings .meetingitem .post .group {
+	margin:0 15px 1px 15px;
+	padding:0px 0 0px 70px;
+	position:relative;
+	text-align:left;
+	font-size:12px;
+}
+
+.guild .guildcontent .meetings .meetingitem .post .groupname {
+	position:absolute;
+	left:0px;
+	color:#7F7F79;
+}
+
+.guild .guildcontent .meetings .meetingitemOld {
+	margin-bottom:10px;
+}
+
+.guild .guildcontent .meetings .meetingitemOld .post {
+	position:relative;
+	min-height:80px;
+	margin-bottom:10px;
+	padding-bottom:10px;
+	background-color:#F2F2EA;
+	border-radius:4px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.guild .guildcontent .meetings .meetingitemOld .post br {
+	clear:both;
+}
+
+.guild .guildcontent .meetings .meetingitemOld .post .date{
+	position:absolute;
+	left:0;
+	top:15px;
+	background:#444441;
+	color:#fff;
+	font-size:10px;
+	width:30px;
+	height:30px;
+	border-radius:0 2px 2px 0;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+	cursor:default;
+}
+
+.guild .guildcontent .meetings .meetingitemOld .post .date p {
+	margin:0;
+	line-height:1px;
+}
+
+.guild .guildcontent .meetings .meetingitemOld .post .date .day {
+	font-size:20px;
+	margin-top:4px;
+	letter-spacing:-1px;
+}
+
+.guild .guildcontent .meetings .meetingitemOld .post .date .month {
+	margin-top:-1px;
+}
+
+.guild .guildcontent .meetings .meetingitemOld .post .name {
+	text-align:left;
+	letter-spacing:-1px;
+	padding-top:20px;
+	margin:0 15px 0 40px;
+}
+
+.guild .guildcontent .meetings .meetingitemOld .post .group {
+	margin:0 15px 0 15px;
+	padding:5px 0 0px 0px;
+	position:relative;
+	text-align:left;
+	font-size:12px;
+}
+
+
+
+.guild .guildcontent .rightblock {
+	float:left;
+	width:230px;
+}
+
+.guild .guildcontent .rightblock .members {
+	width:230px;
 	position:relative;
 }
 
-.profile .userInfoGroup br {
+.guild .guildcontent .rightblock .members .item {
+	float:left;
+	width:50px;
+	height:50px;
+	margin:0 10px 10px 0;
+	background-color:#fff;
+	border-radius:2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.guild .guildcontent .rightblock .members .item:nth-child(4n) {
+	margin:0 0 10px 0;
+}
+
+.guild .guildcontent .rightblock .members .item .memberAvatar {
+	width:50px;
+	height:50px;
+	margin:0;
+	background-position:0 0;
+	background-repeat:no-repeat;
+	background-size:50px 50px;
+	border-radius:2px;
+	cursor:pointer;
+}
+
+.guild .guildcontent .rightblock .members .item .memberNickname {
+	position:absolute;
+	text-align:center;
+	min-width:50px;
+	max-width:50px;
+	overflow:hidden;
+	background-color:rgba(0,0,0,0.7);
+	color:#FFFFF7;
+	border-radius:0 0 2px 2px;
+	height:18px;
+	padding-top:0px;
+	margin-top:-18px;
+	font-size:10px;
+	letter-spacing:-1px;
+	cursor:pointer;
+	opacity:0;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.guild .guildcontent .rightblock .members .item:hover .memberNickname {
+	opacity:1;
+}
+
+/* Комментарии */
+
+.comments {
+	width:100%;
+	position:relative;
+}
+
+.comments .commenttab {
+	position:relative;
+	padding:0 0 10px 40px;
+	min-height:35px;
+	margin:0 15px 10px 15px;
+	text-align:left;
+	border-bottom:1px solid #B2B2AB;
+}
+
+.comments .commenttab .avatar {
+	position:absolute;
+	left:0;
+	top:0;
+	width:35px;
+	height:35px;
+	background-color:#fff;
+	background-position:0 0;
+	background-repeat:no-repeat;
+	background-size:35px 35px;
+	border-radius:2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.comments .commenttab .nickname {
+	color:#000;
+	line-height:1em;
+	margin-bottom:3px;
+}
+
+.comments .commenttab .text {
+	overflow: hidden;
+	overflow-wrap: break-word;
+}
+
+.comments .commenttab .date {
+	margin-top:5px;
+	font-size:10px;
+	line-height:1em;
+	color:#8C8C86;
+}
+
+/* Встречи */
+
+.meeting {
+	width:600px;
+	margin:20px auto 0 auto;
+}
+
+.meeting .meetingitem {
+	margin-bottom:10px;
+}
+
+.meeting .meetingitem .post {
+	position:relative;
+	min-height:80px;
+	margin-bottom:10px;
+	padding-bottom:10px;
+	background-color:#F2F2EA;
+	border-radius:4px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.meeting .meetingitem .post br {
 	clear:both;
+}
+
+.meeting .meetingitem .post .date{
+	position:absolute;
+	left:15px;
+	top:0;
+	background:#444441;
+	color:#fff;
+	font-size:10px;
+	width:50px;
+	height:50px;
+	border-radius:0 0 2px 2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+	cursor:default;
+}
+
+.meeting .meetingitem .post .date p {
+	margin:0;
+	line-height:1px;
+}
+
+.meeting .meetingitem .post .date .day {
+	font-size:20px;
+	margin-top:4px;
+	letter-spacing:-1px;
+}
+
+.meeting .meetingitem .post .date .month {
+	margin-top:-1px;
+}
+
+.meeting .meetingitem .post .type{
+	position:absolute;
+	left:50px;
+	top:0;
+	background:#7F7F79;
+	color:#FFFFF7;
+	font-size:10px;
+	width:30px;
+	height:30px;
+	border-radius:0 0 2px 2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.meeting .meetingitem .post .accept{
+	position:absolute;
+	right:85px;
+	top:0;
+	background:#A0A467;
+	color:#FFFFF7;
+	font-size:10px;
+	width:30px;
+	height:30px;
+	border-radius:0 0 2px 2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.meeting .meetingitem .post .wait{
+	position:absolute;
+	right:50px;
+	top:0;
+	background:#7F7F79;
+	color:#FFFFF7;
+	font-size:10px;
+	width:30px;
+	height:30px;
+	border-radius:0 0 2px 2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.meeting .meetingitem .post .cansel{
+	position:absolute;
+	right:15px;
+	top:0;
+	background:#AA5560;
+	color:#FFFFF7;
+	font-size:10px;
+	width:30px;
+	height:30px;
+	border-radius:0 0 2px 2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+}
+
+.meeting .meetingitem .post .name {
+	margin-top:20px;
+	margin-bottom:-5px;
+	text-align:left;
+	padding:0 15px;
+	letter-spacing:-1px;
+}
+
+.meeting .meetingitem .post .group {
+	margin:0 15px 1px 15px;
+	padding:0px 0 0px 70px;
+	position:relative;
+	text-align:left;
+	font-size:12px;
+}
+
+.meeting .meetingitem .post .groupname {
+	position:absolute;
+	left:0px;
+	color:#7F7F79;
 }

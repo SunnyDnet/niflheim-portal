@@ -20,6 +20,21 @@
 	"userAge" : "Возраст:",
 	"userAbout" : "О себе:",
 	"userGender" : "Пол:",
+	"userInterests" : "Интересы:",
 	"userEmail" : "Email",
-	"userRegDate" : "Дата регистрации"
-}
+	"userRegDate" : "Дата регистрации",
+	"userButtonEnter" : "Войти",
+	"userButtonReg" : "Зарегистрироваться",
+	"singUpInfo" : "Авторизируйтесь, чтобы войти на сайт и получить доступ к контенту.",
+	"userButtonRegEnd" : "Завершить регистрацию",
+	"userRegStepOne" : "Впервые на сайте? Регистрация займёт всего несколько минут.",
+	"userRegStepTwo" : "Укажите предпочитаемый никнейм, ваш пол и дату рождения",
+	"userRegStepThree" : "Укажите свой электронный адрес",
+	"userRegStepFour" : "Создайте пароль, чтобы защитить свои данные.",
+	"userGender" : "Ваш пол",
+	"backward" : "Назад",
+	"forward" : "Продолжить",
+	"userGuilds" : "Гильдии",
+	"userCalander" : "Календарь",
+	"userMeetings" : "Встречи"
+} 

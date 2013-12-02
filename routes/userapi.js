@@ -25,7 +25,8 @@ exports.registration = function(req, res){
 			}
 		});
 	} else {
-		res.json({errors : reqBody.errors});
+		console.log(reqBody.errors);
+		res.json({error : reqBody.errors});
 	}	
 };
 exports.loginUser = function(req, res){
@@ -162,14 +163,17 @@ function checkEmail (value, cb){
 
 function userViewModel (user){
 	return {
+		id : user.id,
 		fullName : user.firstName + " " + user.lastName,
+		firstName : user.firstName,
 		regDate : user.regDate,
+		birthDate : user.birthDate,
 		age : (function(date){
 			return Math.floor((new Date() - date) / 1000 / 31536000);
 		})(user.birthDate),
 		email : user.email,
 		gender : (function(male){
-			return ((male) ? "Молодой человек" : "Девушка")
+			return ((male) ? "Мужской" : "Женский")
 		})(user.male),
 		nickName : user.nickName
 	}

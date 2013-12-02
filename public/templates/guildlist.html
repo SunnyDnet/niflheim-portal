@@ -1,0 +1,51 @@
+﻿<div class="wrapper">
+	<div class="header">
+		<div class="left">
+			<div class="logo" onclick="location.href=''">
+				<div class="project"></div>
+				<div class="thirteen"></div>
+			</div>
+		</div>
+		<div class="menu">
+			<ul>
+				<li class="menuitem" ng-click="meetings()" ng-bind="langPackage.userMeetings"></li>
+				<li class="menuitem" ng-click="calander()" ng-bind="langPackage.userCalander"></li>
+				<li class="menuitem" ng-click="guilds()" ng-bind="langPackage.userGuilds"></li>
+			</ul>
+		</div>
+		<div class="right">
+			<div class="account" onclick="location.href='user_profile.html'">
+				<div class="avatar" style="background-image:url(images/avatars/katarina.jpg)"></div>
+				Katarina
+			</div>
+		</div>
+	</div>
+	<div class="middle">
+		<div class="content">
+			
+			<div class="guildlist">
+					<div class="guilditem" onclick="location.href='guild_summoners_rift.html'">
+						<div class="guild-logo" style="background-image:url(images/logos/summoners_rift_100.jpg)"></div>
+						<div class="guild-name">
+							<p class="name">Summoner's Rift</p>
+							<p class="desc">The oldest and most venerated Field of Justice in Valaron.</p>
+						</div>
+					</div>
+					<div class="guilditem" onclick="location.href='guild_emperium.html'">
+						<div class="guild-logo" style="background-image:url(images/logos/emperium_100.jpg)"></div>
+						<div class="guild-name">
+							<p class="name">Emperium</p>
+							<p class="desc">Клуб интеллектуальных настольных и ролевых игр.</p>
+						</div>
+					</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<script src="js/jquery-latest.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery-site.js"></script>
+</body>
+</html>

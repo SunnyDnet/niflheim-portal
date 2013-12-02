@@ -1,23 +1,49 @@
-﻿<div class="middle">
-	<div class="content">
-		<div class="profile">
-			<h2 class="userNickname" ng-bind="user.nickName"></h2>
-			<div class="userAvatar" style="background-image:url(images/avatars/kaelnaar.jpg);"></div>
-			<div class="userInfo">
-				<ul class="userInfoGroup">
-					<li><p class="item" ng-bind="langPackage.userRealFullName"></p><p class="data" id="name" ng-bind="user.fullName"></p><br/></li>
-					<li><p class="item" ng-bind="langPackage.userEmail"></p><p class="data" id="name" ng-bind="user.email"></p><br/></li>
-					<li><p class="item" ng-bind="langPackage.userLocation"></p><p class="data" id="location">{location from DB}</p><br/></li>
-					<li><p class="item" ng-bind="langPackage.userAge"></p><p class="data" id="age" ng-bind="user.age">{calculate Age}</p><br/></li>
-					<li><p class="item" ng-bind="langPackage.userGender"></p><p class="data" id="gender" ng-bind="user.gender"></p><br/></li>
-					<li><p class="item" ng-bind="langPackage.userRegDate"></p><p class="data" id="name" ng-bind="user.regDate"></p><br/></li>
-				</ul>
-				<ul class="userInfoGroup">
-					<li>{tags}</li>
-					<li><p class="item" ng-bind="langPackage.userAbout"></p><p class="data" id="biography">
-						{о себе}
-					</p><br/></li>
-				</ul>
+﻿<div class="wrapper">
+	<div class="header">
+		<div class="left">
+			<div class="logo" onclick="location.href=''">
+				<div class="project"></div>
+				<div class="thirteen"></div>
+			</div>
+		</div>
+		<div class="menu">
+			<ul>
+				<li class="menuitem" ng-click="meetings()" ng-bind="langPackage.userMeetings"></li>
+				<li class="menuitem" ng-click="calander()" ng-bind="langPackage.userCalander"></li>
+				<li class="menuitem" ng-click="guilds()" ng-bind="langPackage.userGuilds"></li>
+			</ul>
+		</div>
+		<div class="right">
+			<div class="account active" ng-click="myprofile()" ng-bind="user.nickName">
+				<div class="avatar" style="background-image:url(images/avatars/katarina.jpg)"></div>
+			</div>
+		</div>
+	</div>
+	<div class="middle">
+		<div class="content">
+			<div class="profile">
+				<div class="profileBlockOne">
+					<div class="user-avatar" id="uAvatar" style="background-image:url(images/avatars/katarina.jpg)"></div>
+					<div class="user-nickname">
+						<p class="name" id="uNickname" ng-bind="user.nickName"></p>
+						<p class="quote" id="uQuote">Violence solves everything!</p>
+					</div>
+				</div>
+				<div class="profileBlockTwo">
+					<div class="user-com">
+						&nbsp;
+					</div>
+					<div class="user-info">
+						<div class="group"><div class="groupname" ng-bind="langPackage.userRealFullName"></div><span id="uFullname" ng-bind="user.fullName"></span></div>
+						<div class="group"><div class="groupname" ng-bind="langPackage.userEmail"></div><span id="uFullname" ng-bind="user.email"></span></div>
+						<div class="group"><div class="groupname" ng-bind="langPackage.userGender"></div><span id="uGender" ng-bind="user.gender"></span></div>
+						<div class="group"><div class="groupname" ng-bind="langPackage.userAge"></div><span id="uBirthday" ng-bind="user.age"></span></div>
+						<div class="group"><div class="groupname" ng-bind="langPackage.userBirth"></div><span id="uBirthday" ng-bind="user.birthDate"></span></div>
+						<div class="group"><div class="groupname" ng-bind="langPackage.userLocation"></div><span id="uLocation">Ноксус, Валоран</span></div>
+						<div class="group2"><div class="groupname" ng-bind="langPackage.userAbout"></div>Неутолимая жажда убийства сделала Катарину одним из лучших наемников Ноксуса и принесла ее семье славу и богатство. Эта страсть ведет Катарину на славные подвиги, но порой становится причиной печальных ошибок.</div>
+						<div class="group2"><div class="groupname" ng-bind="langPackage.userAbout"></div>Cражения, холодное оружие, метательное оружие, ножи, клинки, кожанная одежда.</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
