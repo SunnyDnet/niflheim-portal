@@ -1,7 +1,7 @@
 var ctrl = angular.module("portalCtrl",[]);
 
-ctrl.controller("RegistrCtrl", ["$scope", "$http", "$location", "$cookies", "langPack", "userFunctions",
-	function ($scope, $http, $location, $cookies, langPack, userFunctions) {
+ctrl.controller("RegistrCtrl", ["$scope", "$http", "$location", "$cookies", "langPack", "userFunctions", "globalPrefs",
+	function ($scope, $http, $location, $cookies, langPack, userFunctions, globalPrefs) {
 		langPack.get({
 			lang : "ru"
 		},function(data){
@@ -35,8 +35,9 @@ ctrl.controller("RegistrCtrl", ["$scope", "$http", "$location", "$cookies", "lan
 			success(function(data){
 				if (data.user != undefined && data.user != null){
 					if (typeof(data.user.userId) === "number"){
+						globalPrefs.setUser(data.user.userId);
 						$cookies.UUID = data.user.UUID;
-						$location.path("/user/" + data.user.userId);
+						$location.path(globalPrefs.getUserLinks("user"));
 					}
 				}
 			});
@@ -50,20 +51,25 @@ ctrl.controller("RegistrCtrl", ["$scope", "$http", "$location", "$cookies", "lan
 			.success(function(data){
 				if(data.exist != undefined && data.exist != null && data.exist === true){
 					$cookies.UUID = data.UUID;
-					$location.path("/user/" + data.userId);
+					globalPrefs.setUser(data.userId);
+					$location.path(globalPrefs.getUserLinks("user"));
 				}
 			});
 		};
 	}
 ]);
 
-ctrl.controller("UserCtrl",["$scope", "$http", "$location", "$cookies", "$routeParams", "langPack", "userFunctions",
-	function ($scope, $http, $location, $cookies, $routeParams, langPack, userFunctions) {
+ctrl.controller("UserCtrl",["$scope", "$http", "$location", "$cookies", "$routeParams", "langPack", "userFunctions", "globalPrefs",
+	function ($scope, $http, $location, $cookies, $routeParams, langPack, userFunctions, globalPrefs) {
 		langPack.get({lang : "ru"}, function(data){
 			$scope.langPackage = data;
 		});
 		if ($cookies.UUID){
-			userFunctions.getUser().get({id : $routeParams.id, UUID : $cookies.UUID}, function(data){
+			userFunctions.getUser().get({
+				id : $routeParams.id, 
+				UUID : $cookies.UUID
+			},
+			function(data){
 				if(!data.hasOwnProperty("error")){
 					$scope.user = data.currentUser;
 				} else {
@@ -74,16 +80,37 @@ ctrl.controller("UserCtrl",["$scope", "$http", "$location", "$cookies", "$routeP
 		} else {
 			$location.path("/");
 		};
+		$scope.meeting = function (){
+			$location.path(globalPrefs.getUserLinks("meeting"));
+		}
 		$scope.guilds = function (){
-			$location.path("/user/" + $routeParams.id + "/guilds/")
+			$location.path(globalPrefs.getUserLinks("guilds"));
+		}
+		$scope.calendar = function (){
+			$location.path(globalPrefs.getUserLinks("calendar"));
+		}
+		$scope.user = function (){
+			$location.path(globalPrefs.getUserLinks("user"));
 		}
 	}
 ]);
-ctrl.controller("GuildListCtrl",["$scope", "$http", "$location", "$cookies", "$routeParams", "langPack", "userFunctions",
-	function ($scope, $http, $location, $cookies, $routeParams, langPack, userFunctions) {
+ctrl.controller("GuildListCtrl",["$scope", "$http", "$location", "$cookies", "$routeParams", "langPack", "userFunctions", "globalPrefs",
+	function ($scope, $http, $location, $cookies, $routeParams, langPack, userFunctions, globalPrefs) {
 		langPack.get({lang : "ru"}, function(data){
 			$scope.langPackage = data;
 		});
+		$scope.meeting = function (){
+			$location.path(globalPrefs.getUserLinks("meeting"));
+		}
+		$scope.guilds = function (){
+			$location.path(globalPrefs.getUserLinks("guilds"));
+		}
+		$scope.calendar = function (){
+			$location.path(globalPrefs.getUserLinks("calendar"));
+		}
+		$scope.user = function (){
+			$location.path(globalPrefs.getUserLinks("user"));
+		}
 	}
 ]);
 

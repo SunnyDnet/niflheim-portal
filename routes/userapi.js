@@ -130,13 +130,13 @@ function prepareUserModel (model){
 
 function checkNames (value, cb){
 	var error;
-	((value.length >= 3 && value.length <= 10) ? error = false : error = true); 
+	((value != undefined && value != null && value.length >= 3 && value.length <= 10) ? error = false : error = true); 
 	return cb(error, value);
 }
 
 function checkPassword (value, cb){
 	var error;
-	((value.length >= 3) ? error = false : error = true); 
+	((value != undefined && value != null && value.length >= 3) ? error = false : error = true); 
 	return cb(error, value);
 }
 

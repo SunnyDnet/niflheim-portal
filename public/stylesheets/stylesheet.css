@@ -68,7 +68,6 @@ h1, h2, h3, h4, h5, h6 {
 	margin:0 0 10px 0;
 }
 
-
 .wrapper {
 	position:relative;
 	width:100%;
@@ -229,7 +228,7 @@ h1, h2, h3, h4, h5, h6 {
 	top:0px;
 }
 
-.enter_end {
+.enterEnd {
 	width:184px;
 	padding-left:72px !important;
 }
@@ -246,11 +245,6 @@ h1, h2, h3, h4, h5, h6 {
 	color:#AD2A3A;
 }
 
-.enterGroup p.ng-invalid {
-	height:16px;
-	margin-bottom:10px;
-	color:#AD2A3A;
-}
 .enterGroup .fielderror {
 	background:#fff url(../images/fielderror.png) 0px 50% repeat-y;
 }
@@ -258,7 +252,6 @@ h1, h2, h3, h4, h5, h6 {
 .enterGroup .ng-invalid {
 	background:#fff url(../images/fielderror.png) 0px 50% repeat-y;
 }
-
 .enterGroup span.ok {
 	color:#8C8E59;
 }
@@ -304,12 +297,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .registrationGroup p.error {
-	height:16px;
-	margin-bottom:10px;
-	color:#AD2A3A;
-}
-
-.registrationGroup p.ng-invalid {
 	height:16px;
 	margin-bottom:10px;
 	color:#AD2A3A;
@@ -438,6 +425,16 @@ h1, h2, h3, h4, h5, h6 {
 	cursor:pointer;
 }
 
+.guildlist .guilditemAdd {
+	background-color:#bbbbb0;
+	margin:0 0 7px 0;
+	width:600px;
+	height:80px;
+	border-radius:4px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+	cursor:pointer;
+}
+
 .guildlist .guilditem .guild-logo {
 	float:left;
 	margin:0 20px 0 0;
@@ -534,6 +531,16 @@ h1, h2, h3, h4, h5, h6 {
 .guild .guildcontent .leftblock {
 	float:left;
 	width:225px;
+}
+
+.guild .guildcontent .leftblock .addmeet {
+	width:50px;
+	height:50px;
+	margin:0 10px 10px 0;
+	background-color:#F2F2EA;
+	border-radius:2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+	cursor:pointer;
 }
 
 .guild .guildcontent .meetings {
@@ -647,6 +654,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-align:left;
 	padding:0 15px;
 	letter-spacing:-1px;
+	cursor:pointer;
 }
 
 .guild .guildcontent .meetings .meetingitem .post .group {
@@ -858,9 +866,26 @@ h1, h2, h3, h4, h5, h6 {
 	clear:both;
 }
 
-.meeting .meetingitem .post .date{
+.meeting .meetingitem .post .guildemb{
 	position:absolute;
 	left:15px;
+	top:0;
+	background-color:#000;
+	background-position:0 0;
+	background-repeat:no-repeat;
+	background-size:100%;
+	color:#fff;
+	font-size:10px;
+	width:50px;
+	height:50px;
+	border-radius:0 0 2px 2px;
+	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
+	cursor:pointer;
+}
+
+.meeting .meetingitem .post .date{
+	position:absolute;
+	left:70px;
 	top:0;
 	background:#444441;
 	color:#fff;
@@ -878,24 +903,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .meeting .meetingitem .post .date .day {
-	font-size:20px;
-	margin-top:4px;
+	font-size:34px;
+	margin-top:5px;
 	letter-spacing:-1px;
 }
 
 .meeting .meetingitem .post .date .month {
-	margin-top:-1px;
+	margin-top:1px;
 }
 
 .meeting .meetingitem .post .type{
 	position:absolute;
-	left:50px;
+	left:125px;
 	top:0;
 	background:#7F7F79;
 	color:#FFFFF7;
 	font-size:10px;
-	width:30px;
-	height:30px;
+	width:50px;
+	height:50px;
 	border-radius:0 0 2px 2px;
 	box-shadow:0px 2px 2px -1px rgba(0, 0, 0, 0.102);
 }
@@ -940,7 +965,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .meeting .meetingitem .post .name {
-	margin-top:20px;
+	margin-top:40px;
 	margin-bottom:-5px;
 	text-align:left;
 	padding:0 15px;
@@ -959,4 +984,88 @@ h1, h2, h3, h4, h5, h6 {
 	position:absolute;
 	left:0px;
 	color:#7F7F79;
+}
+
+/* Добавление встречи */
+
+.addmeeting {
+	margin:20px auto 0 auto;
+	width:600px;
+}
+
+.addmeetGroup {
+	margin-bottom:20px;
+	position:relative;
+	top:0px;
+}
+
+.addmeetEnd {
+	width:184px;
+	padding-left:63px !important;
+}
+
+.addmeetGroup p {
+	margin:0 0 2px 0;
+	text-align:center;
+	padding:0;
+}
+
+.addmeetGroup p.error {
+	height:16px;
+	margin-bottom:10px;
+	color:#AD2A3A;
+}
+
+.addmeetGroup .fielderror {
+	background:#fff url(../images/fielderror.png) 0px 50% repeat-y;
+}
+
+.addmeetGroup .ng-invalid {
+	background:#fff url(../images/fielderror.png) 0px 50% repeat-y;
+}
+
+.addmeetGroup span.ok {
+	color:#8C8E59;
+}
+
+/* Добавление гильдии */
+
+.addguild {
+	margin:20px auto 0 auto;
+	width:600px;
+}
+
+.addguildGroup {
+	margin-bottom:20px;
+	position:relative;
+	top:0px;
+}
+
+.addguildEnd {
+	width:184px;
+	padding-left:63px !important;
+}
+
+.addguildGroup p {
+	margin:0 0 2px 0;
+	text-align:center;
+	padding:0;
+}
+
+.addguildGroup p.error {
+	height:16px;
+	margin-bottom:10px;
+	color:#AD2A3A;
+}
+
+.addguildGroup .fielderror {
+	background:#fff url(../images/fielderror.png) 0px 50% repeat-y;
+}
+
+.addguildGroup .ng-invalid {
+	background:#fff url(../images/fielderror.png) 0px 50% repeat-y;
+}
+
+.addguildGroup span.ok {
+	color:#8C8E59;
 }

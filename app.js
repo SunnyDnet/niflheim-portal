@@ -18,9 +18,11 @@ app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
 app.use(express.favicon());
 app.use(express.logger('dev'));
-app.use(express.bodyParser());
+app.use(express.urlencoded());
+app.use(express.json());
+//app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(database.express("mysql://root@127.0.0.1:3306/portal", {
+app.use(database.express("mysql://root:root@127.0.0.1:3306/portal", {
     define: function (db, models, next) {
         db.load('./db/user',function(){
         	models.user = db.models.user;        	

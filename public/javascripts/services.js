@@ -52,3 +52,33 @@ portalServices.factory("userFunctions", ["$resource",
 			}
 		};
 	}]);
+portalServices.factory("globalPrefs", [ 
+	function(){
+		var _userGuildLink,
+			_userMeetingLink,
+			_userCalendarLink,
+			_userId;	
+		return {
+			setUser : function(id){
+				_userId = id;
+			},
+			getUserLinks : function(type){
+				var link = "";
+				switch(type){
+					case "meeting":
+						link = "/user/" + _userId + "/meeting/";
+						break;
+					case "guilds":
+						link = "/user/" + _userId + "/guilds/";
+						break;
+					case "calendar": 
+						link = "/user/" + _userId + "/calendar/";
+						break;
+					case "user":
+						link = "/user/" + _userId;
+						break;
+				}
+				return link;
+			}			
+		};
+	}]);

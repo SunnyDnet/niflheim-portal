@@ -8,13 +8,13 @@
 		</div>
 		<div class="menu">
 			<ul>
-				<li class="menuitem" ng-click="meetings()" ng-bind="langPackage.userMeetings"></li>
-				<li class="menuitem" ng-click="calander()" ng-bind="langPackage.userCalander"></li>
-				<li class="menuitem" ng-click="guilds()" ng-bind="langPackage.userGuilds"></li>
+				<li class="menuitem" ng-click="meeting()" ng-bind="langPackage.userMeetings"></li>
+				<li class="menuitem" ng-click="calendar()" ng-bind="langPackage.userCalander"></li>
+				<li class="menuitem" ng-class="'active'" ng-click="guilds()" ng-bind="langPackage.userGuilds"></li>
 			</ul>
 		</div>
 		<div class="right">
-			<div class="account" onclick="location.href='user_profile.html'">
+			<div class="account" ng-click="user()">
 				<div class="avatar" style="background-image:url(images/avatars/katarina.jpg)"></div>
 				Katarina
 			</div>
@@ -38,14 +38,11 @@
 							<p class="desc">Клуб интеллектуальных настольных и ролевых игр.</p>
 						</div>
 					</div>
+					<div class="guilditemAdd" onclick="location.href='add_guild.html'">
+						add
+					</div>
 			</div>
 			
 		</div>
 	</div>
 </div>
-
-<script src="js/jquery-latest.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/jquery-site.js"></script>
-</body>
-</html>
