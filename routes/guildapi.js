@@ -7,16 +7,24 @@
 exports.addGuild = function(req, res){
  	var guildModel = prePareGuildModel(req.body.guild);
  	if(guildModel.errors.length == 0){
-		req.models.guild.create(new Array(guildModel.guild), function (err, guilds){
+		req.models.group.create(new Array(guildModel.guild), function (err, guilds){
 			if (err == null) { 
-				req.model.groupmember.create(new Array({
+				req.models.groupmember.create(new Array({
 					userId : req.body.user.id,
-					groupId : 
-				}, function (err, members) {
-					if () {
-						res.json
+					groupId : guilds[0].id
+				}), function (err, members) {
+					console.log(err);
+					if (err != null) {
+						res.json({
+							guild : {
+								id : guilds[0].id
+							}
+						});
+					} else {
+						console.log(err);
+						res.json({error : err});
 					}
-				}));
+				});
 			} else {
 				console.log(err);
 				res.json({error : err});
@@ -48,7 +56,7 @@ exports.getGuild = function(req, res){
 	}
 }
 
- function prePareGuildModel(model){
+function prePareGuildModel(model){
  	var guildModel = {
 			errors : []
 		};
@@ -65,5 +73,16 @@ exports.getGuild = function(req, res){
 				return value;
 			}),
 		}
-	return userModel; 
- }
+	return guildModel; 
+}
+
+function checkDescription (value, cb){
+	var error;
+	((value != undefined && value != null && value.length >= 3 && value.length <= 10) ? error = false : error = true); 
+	return cb(error, value);
+}
+function checkGroupName (value, cb){
+	var error;
+	((value != undefined && value != null && value.length >= 3 && value.length <= 10) ? error = false : error = true); 
+	return cb(error, value);
+}

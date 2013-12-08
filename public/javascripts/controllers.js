@@ -124,17 +124,17 @@ ctrl.controller("GuildAddCtrl",["$scope", "$http", "$location", "$cookies", "$ro
 		$scope.guild = {};
 		$scope.meeting = function (){
 			$location.path(globalPrefs.getUserLinks("meeting"));
-		}
+		};
 		$scope.guilds = function (){
 			$location.path(globalPrefs.getUserLinks("guilds"));
-		}
+		};
 		$scope.calendar = function (){
 			$location.path(globalPrefs.getUserLinks("calendar"));
-		}
+		};
 		$scope.user = function (){
 			$location.path(globalPrefs.getUserLinks("user"));
-		}
-		$scope.addguild = function(){
+		};
+		$scope.guildadd = function(){
 			$http({
 				method: "POST",
 				url : "/guild/add",
@@ -146,7 +146,7 @@ ctrl.controller("GuildAddCtrl",["$scope", "$http", "$location", "$cookies", "$ro
 					}
 				}
 			})
-			.success(function(data){
+			.success(function (data){
 				if (data.guild != undefined && data.guild != null){
 					if (typeof(data.guild.guildId) === "number"){
 						$location.path("/guild/" + data.guild.guildId);
@@ -173,26 +173,6 @@ ctrl.controller("GuildCrtl",["$scope", "$http", "$location", "$cookies", "$route
 		}
 		$scope.user = function (){
 			$location.path(globalPrefs.getUserLinks("user"));
-		}
-		$scope.addguild = function(){
-			$http({
-				method: "POST",
-				url : "/guild/add",
-				data : {
-					guild : $scope.guild,
-					user : {
-						id : $routeParams.id,
-						UUID : $cookies.UUID
-					}
-				}
-			})
-			.success(function(data){
-				if (data.guild != undefined && data.guild != null){
-					if (typeof(data.guild.guildId) === "number"){
-						$location.path("/guild/" + data.guild.guildId);
-					}
-				}
-			});
 		}
 	}
 ]);

@@ -5,7 +5,7 @@
  */
 
 module.exports = function (db, cb) {
-    db.define('group', {
+    db.define('groupmember', {
         userId : Number,
         groupId : Number
     },{});
