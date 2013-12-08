@@ -9,10 +9,6 @@ exports.registration = function(req, res){
 	if(reqBody.errors.length == 0){
 		req.models.user.create(new Array(reqBody.user), function(err,items){
 			if (err == null) { 
-				res.set({
-					UUID : items[0].APIToken
-				});
-				res.cookie('UUID', items[0].APIToken, {maxAge: 900000});
 				res.json({
 					user : {
 						userId : items[0].id,
@@ -37,7 +33,6 @@ exports.loginUser = function(req, res){
 		}, 
 		function(err, user){
 			if (err == null && user.length > 0){
-				res.cookie('UUID', user[0].APIToken, {maxAge: 900000});
 				res.json({
 					currentUser : userViewModel(user[0]),
 					UUID : user[0].APIToken

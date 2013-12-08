@@ -14,12 +14,16 @@ portal.config(["$routeProvider",
 				controller : "RegistrCtrl"
 			}).
 			when("/user/:id",{
-				templateUrl : "/templates/userProfile.html",
+				templateUrl : "/templates/userprofile.html",
 				controller : "UserCtrl"
 			}).
 			when("/user/:id/guilds",{
 				templateUrl : "/templates/guildlist.html",
 				controller : "GuildListCtrl"
+			}).
+			when("/user/:id/guild/add",{
+				templateUrl : "/templates/addguild.html",
+				controller : "GuildAddCtrl"
 			}).
 			otherwise({
 				redirecTo: '/'

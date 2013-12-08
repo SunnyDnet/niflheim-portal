@@ -1,0 +1,69 @@
+/**
+ *
+ * Routing GUILD REST API
+ *
+ */
+
+exports.addGuild = function(req, res){
+ 	var guildModel = prePareGuildModel(req.body.guild);
+ 	if(guildModel.errors.length == 0){
+		req.models.guild.create(new Array(guildModel.guild), function (err, guilds){
+			if (err == null) { 
+				req.model.groupmember.create(new Array({
+					userId : req.body.user.id,
+					groupId : 
+				}, function (err, members) {
+					if () {
+						res.json
+					}
+				}));
+			} else {
+				console.log(err);
+				res.json({error : err});
+			}
+		});
+	} else {
+		console.log(guildModel.errors);
+		res.json({error : guildModel.errors});
+	}	
+}
+
+exports.getGuild = function(req, res){
+	if (req.params.id != undefined && req.params.id != null){
+		req.model.group.find({
+			id : req.params.id
+		}, 
+		function(err, guild){
+			if (err == null && guild.length > 0){
+				res.json({
+					guild : guildViewModel(guild[0])
+				});
+			} else {
+				console.log(err);
+				res.json({error : err});
+			}
+		});
+	} else {
+		res.json({error : "ERROR"});
+	}
+}
+
+ function prePareGuildModel(model){
+ 	var guildModel = {
+			errors : []
+		};
+
+	guildModel.guild = {
+			id : Math.floor(Math.random() * 10000000 + 1),
+			description : checkDescription(model.descr, function(err, value){ 
+				(err ? guildModel.errors.push("Invalid Description") : null);
+				return value;
+			}),
+			creationDate : new Date(),
+			groupName : checkGroupName(model.name, function(err, value){ 
+				(err ? guildModel.errors.push("Invalid Group Name") : null);
+				return value;
+			}),
+		}
+	return userModel; 
+ }

@@ -1,0 +1,161 @@
+﻿<div class="wrapper">
+	<div class="header">
+		<div class="left">
+			<div class="logo" onclick="location.href=''">
+				<div class="project"></div>
+				<div class="thirteen"></div>
+			</div>
+		</div>
+		<div class="menu">
+			<ul>
+				<li class="menuitem" ng-click="meetings()" ng-bind="langPackage.userMeetings"></li>
+				<li class="menuitem" ng-click="calander()" ng-bind="langPackage.userCalander"></li>
+				<li class="menuitem" ng-click="guilds()" ng-bind="langPackage.userGuilds"></li>
+			</ul>
+		</div>
+		<div class="right">
+			<div class="account" ng-click="myprofile()">
+				<span class="active" ng-bind="user.nickName" style="float:left;"></span>
+				<div class="avatar" style="background-image:url(images/avatars/katarina.jpg)"></div>
+			</div>
+		</div>
+	</div>
+	<div class="middle">
+		<div class="content">
+			
+			<div class="guild">
+				<div class="guildheader">
+					<div class="logo" style="background-image:url(images/headers/emperium.png)"></div>
+					<div class="namebar"><p class="name">Emperium<p><p class="status">Cкоро официальное открытие первого сезона</p></div>
+				</div>
+				<div class="guildcontent">
+					<div class="description">
+						Организация игроков в гильдии и возможность принимать участие в «Войне за Империум» (War of Emperium) — одна из основных концепций высокоуровневого игрового контента в Ragnarök Online.
+						Суть сражений заключаются в возможности захвата и защиты замков. В сердце каждого замка спрятан огромный камень Империум (Emperium), разбив который, атакующая гильдия захватывает замок и переходит к обороне. Сражения проходят, как правило, по определенным дням недели и в определенное время. Обычно, война длится два часа и затрагивает только определённые локации (замки), за которые и проходят сражения.
+						Обладание замком дает гильдии, помимо социального статуса, возможность посещать специальное подземелье (Guild Dungeon), где водятся сильные, но и выгодные для прокачки монстры. Также раз в день в специальной комнате-сокровищнице замка появляются сундуки с редкими предметами. Количество сундуков зависит от экономики. Войти в комнату может только глава гильдии, владеющей замком. Экономика зависит от вложений, при перезахвате замка уровень экономики уменьшается. 
+					</div>
+					
+					<div class="leftblock">
+						<div class="addmeet" onclick="location.href='add_meeting.html'">add</div>
+					</div>
+					<div class="meetings">
+						<div class="meetingitem">
+							<div class="post">
+								<div class="date"><p class="day">30</p><p class="month">сен</p></div>
+								<div class="type"></div>
+								<div class="accept"></div>
+								<div class="wait"></div>
+								<div class="cansel"></div>
+								<br/>
+								<div class="name" onclick="location.href='meeting_01.html'"><h3>Название будущей встречи</h3></div>
+								<div class="group"><div class="groupname">Время:</div><span>10:00 - 20:00</span></div>
+								<div class="group"><div class="groupname">Описание:</div><span>Здесь будет описание встречи,а так же вода и еещё немного воды и прочая хуятень по поводу встречи, расписание ипрограмма встречи будет совершенно не здесь.</span></div>
+							</div>
+							<div class="comments">
+								<div class="commenttab">
+									<div class="avatar" style="background-image:url(images/avatars/katarina.jpg)"></div>
+									<div class="nickname">Katarina</div>
+									<div class="text">Всем привет! Как дела? Это самый первый и самый бессмысленный коммент.</div>
+									<div class="date">28 авг 2013 в 16:00</div>
+								</div>
+								<div class="commenttab">
+									<div class="avatar" style="background-image:url(images/avatars/garen.jpg)"></div>
+									<div class="nickname">Garen</div>
+									<div class="text">Ха, Дэмаси-и-и-и-и-и-я!</div>
+									<div class="date">28 авг 2013 в 16:02</div>
+								</div>
+								<div class="commenttab">
+									<div class="avatar" style="background-image:url(images/avatars/master_yi.jpg)"></div>
+									<div class="nickname">Master Yi</div>
+									<div class="text">Слооооооу!</div>
+									<div class="date">1 сен 2013 в 18:04</div>
+								</div>
+							</div>
+						</div>
+						<div class="meetingitem">
+							<div class="post">
+								<div class="date"><p class="day">25</p><p class="month">сен</p></div>
+								<div class="type"></div>
+								<div class="accept"></div>
+								<div class="wait"></div>
+								<div class="cansel"></div>
+								<br/>
+								<div class="name"><h3>Название будущей встречи чуть ранее</h3></div>
+								<div class="group"><div class="groupname">Время:</div><span>10:00 - 20:00</span></div>
+								<div class="group"><div class="groupname">Описание:</div><span>Здесь будет описание встречи,а так же вода и еещё немного воды и прочая хуятень по поводу встречи, расписание ипрограмма встречи будет совершенно не здесь.</span></div>
+							</div>
+							<div class="comments">
+								<div class="commenttab">
+									<div class="avatar" style="background-image:url(images/avatars/ashe.jpg)"></div>
+									<div class="nickname">Ashe</div>
+									<div class="text">О чём эта встреча?</div>
+									<div class="date">13 авг 2013 в 8:00</div>
+								</div>
+								<div class="commenttab">
+									<div class="avatar" style="background-image:url(images/avatars/lux.jpg)"></div>
+									<div class="nickname">Lux</div>
+									<div class="text">*смеётся*</div>
+									<div class="date">14 авг 2013 в 10:52</div>
+								</div>
+								<div class="commenttab">
+									<div class="avatar" style="background-image:url(images/avatars/garen.jpg)"></div>
+									<div class="nickname">Garen</div>
+									<div class="text">О нет. не смейся, сестра!!</div>
+									<div class="date">20 сен 2013 в 20:29</div>
+								</div>
+							</div>
+						</div>
+						<div class="meetingitemOld">
+							<div class="post">
+								<div class="date"><p class="day">20</p><p class="month">сен</p></div>
+								<div class="name"><h3>Название прошедшей встречи</h3></div>
+								<div class="group">Здесь будет описание встречи,а так же вода и еещё немного воды и прочая хуятень по поводу встречи, расписание ипрограмма встречи будет совершенно не здесь.</div>
+							</div>
+						</div>
+						<div class="meetingitemOld">
+							<div class="post">
+								<div class="date"><p class="day">15</p><p class="month">сен</p></div>
+								<div class="name"><h3>Название прошедшей вообще старой встречи</h3></div>
+								<div class="group">Здесь будет описание встречи,а так же вода и еещё немного воды и прочая хуятень по поводу встречи, расписание ипрограмма встречи будет совершенно не здесь.</div>
+							</div>
+						</div>
+						<div class="meetingitemOld">
+							<div class="post">
+								<div class="date"><p class="day">1</p><p class="month">янв</p></div>
+								<div class="name"><h3>Очень старая встреча</h3></div>
+								<div class="group">Здесь будет описание встречи,а так же вода и еещё немного воды и прочая хуятень по поводу встречи, расписание ипрограмма встречи будет совершенно не здесь.</div>
+							</div>
+						</div>
+						
+					</div>
+					<div class="rightblock">
+						<div class="members">
+							<div class="item" onclick="location.href='user_profile.html'">
+								<div class="memberAvatar" style="background-image:url(images/avatars/katarina.jpg)"></div>
+								<div class="memberNickname">Katarina</div>
+							</div>
+							<div class="item" onclick="location.href='user_profile_garen.html'">
+								<div class="memberAvatar" style="background-image:url(images/avatars/garen.jpg)"></div>
+								<div class="memberNickname">Garen</div>
+							</div>
+							<div class="item" onclick="location.href='user_profile_ashe.html'">
+								<div class="memberAvatar" style="background-image:url(images/avatars/ashe.jpg)"></div>
+								<div class="memberNickname">Ashe</div>
+							</div>
+							<div class="item" onclick="location.href='user_profile_master_yi.html'">
+								<div class="memberAvatar" style="background-image:url(images/avatars/master_yi.jpg)"></div>
+								<div class="memberNickname">Master Yi</div>
+							</div>
+							<div class="item" onclick="location.href='user_profile_lux.html'">
+								<div class="memberAvatar" style="background-image:url(images/avatars/lux.jpg)"></div>
+								<div class="memberNickname">Lux</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

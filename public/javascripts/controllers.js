@@ -111,6 +111,89 @@ ctrl.controller("GuildListCtrl",["$scope", "$http", "$location", "$cookies", "$r
 		$scope.user = function (){
 			$location.path(globalPrefs.getUserLinks("user"));
 		}
+		$scope.addingGuild = function(){
+			$location.path(globalPrefs.getUserLinks("user") + "/guild/add");
+		}
+	}
+]);
+ctrl.controller("GuildAddCtrl",["$scope", "$http", "$location", "$cookies", "$routeParams", "langPack", "userFunctions", "globalPrefs",
+	function ($scope, $http, $location, $cookies, $routeParams, langPack, userFunctions, globalPrefs) {
+		langPack.get({lang : "ru"}, function(data){
+			$scope.langPackage = data;
+		});
+		$scope.guild = {};
+		$scope.meeting = function (){
+			$location.path(globalPrefs.getUserLinks("meeting"));
+		}
+		$scope.guilds = function (){
+			$location.path(globalPrefs.getUserLinks("guilds"));
+		}
+		$scope.calendar = function (){
+			$location.path(globalPrefs.getUserLinks("calendar"));
+		}
+		$scope.user = function (){
+			$location.path(globalPrefs.getUserLinks("user"));
+		}
+		$scope.addguild = function(){
+			$http({
+				method: "POST",
+				url : "/guild/add",
+				data : {
+					guild : $scope.guild,
+					user : {
+						id : $routeParams.id,
+						UUID : $cookies.UUID
+					}
+				}
+			})
+			.success(function(data){
+				if (data.guild != undefined && data.guild != null){
+					if (typeof(data.guild.guildId) === "number"){
+						$location.path("/guild/" + data.guild.guildId);
+					}
+				}
+			});
+		}
+	}
+]);
+ctrl.controller("GuildCrtl",["$scope", "$http", "$location", "$cookies", "$routeParams", "langPack", "userFunctions", "globalPrefs",
+	function ($scope, $http, $location, $cookies, $routeParams, langPack, userFunctions, globalPrefs) {
+		langPack.get({lang : "ru"}, function(data){
+			$scope.langPackage = data;
+		});
+		$scope.guild = {};
+		$scope.meeting = function (){
+			$location.path(globalPrefs.getUserLinks("meeting"));
+		}
+		$scope.guilds = function (){
+			$location.path(globalPrefs.getUserLinks("guilds"));
+		}
+		$scope.calendar = function (){
+			$location.path(globalPrefs.getUserLinks("calendar"));
+		}
+		$scope.user = function (){
+			$location.path(globalPrefs.getUserLinks("user"));
+		}
+		$scope.addguild = function(){
+			$http({
+				method: "POST",
+				url : "/guild/add",
+				data : {
+					guild : $scope.guild,
+					user : {
+						id : $routeParams.id,
+						UUID : $cookies.UUID
+					}
+				}
+			})
+			.success(function(data){
+				if (data.guild != undefined && data.guild != null){
+					if (typeof(data.guild.guildId) === "number"){
+						$location.path("/guild/" + data.guild.guildId);
+					}
+				}
+			});
+		}
 	}
 ]);
 

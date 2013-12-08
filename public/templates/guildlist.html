@@ -15,8 +15,8 @@
 		</div>
 		<div class="right">
 			<div class="account" ng-click="user()">
+				<span class="active" ng-bind="user.nickName" style="float:left;"></span>
 				<div class="avatar" style="background-image:url(images/avatars/katarina.jpg)"></div>
-				Katarina
 			</div>
 		</div>
 	</div>
@@ -38,8 +38,7 @@
 							<p class="desc">Клуб интеллектуальных настольных и ролевых игр.</p>
 						</div>
 					</div>
-					<div class="guilditemAdd" onclick="location.href='add_guild.html'">
-						add
+					<div class="guilditemAdd" ng-click="addingGuild()" ng-bind="langPackage.addNewGuild">
 					</div>
 			</div>
 			
