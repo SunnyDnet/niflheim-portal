@@ -24,18 +24,13 @@
 		<div class="content">
 			
 			<div class="guildlist">
-					<div class="guilditem" onclick="location.href='guild_summoners_rift.html'">
-						<div class="guild-logo" style="background-image:url(images/logos/summoners_rift_100.jpg)"></div>
-						<div class="guild-name">
-							<p class="name">Summoner's Rift</p>
-							<p class="desc">The oldest and most venerated Field of Justice in Valaron.</p>
-						</div>
-					</div>
-					<div class="guilditem" onclick="location.href='guild_emperium.html'">
-						<div class="guild-logo" style="background-image:url(images/logos/emperium_100.jpg)"></div>
-						<div class="guild-name">
-							<p class="name">Emperium</p>
-							<p class="desc">Клуб интеллектуальных настольных и ролевых игр.</p>
+					<div ng-repeat="guild in data.guilds">
+						<div class="guilditem" ng-click="view(guild.id)">
+							<div class="guild-logo" style="background-image:url(images/logos/emperium_100.jpg)"></div>
+							<div class="guild-name">
+								<p class="name" ng-bind="guild.groupName"></p>
+								<p class="desc" ng-bind="guild.description"></p>
+							</div>
 						</div>
 					</div>
 					<div class="guilditemAdd" ng-click="addingGuild()" ng-bind="langPackage.addNewGuild">

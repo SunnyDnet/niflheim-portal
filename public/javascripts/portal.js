@@ -25,6 +25,10 @@ portal.config(["$routeProvider",
 				templateUrl : "/templates/addguild.html",
 				controller : "GuildAddCtrl"
 			}).
+			when("/guild/:id",{
+				templateUrl : "/templates/guild.html",
+				controller : "GuildAddCtrl"
+			}).
 			otherwise({
 				redirecTo: '/'
 			});

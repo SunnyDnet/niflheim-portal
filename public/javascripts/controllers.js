@@ -37,6 +37,7 @@ ctrl.controller("RegistrCtrl", ["$scope", "$http", "$location", "$cookies", "lan
 					if (typeof(data.user.userId) === "number"){
 						globalPrefs.setUser(data.user.userId);
 						$cookies.UUID = data.user.UUID;
+						$cookies.id = data.user.userId;
 						$location.path(globalPrefs.getUserLinks("user"));
 					}
 				}
@@ -51,6 +52,7 @@ ctrl.controller("RegistrCtrl", ["$scope", "$http", "$location", "$cookies", "lan
 			.success(function(data){
 				if(data.exist != undefined && data.exist != null && data.exist === true){
 					$cookies.UUID = data.UUID;
+					$cookies.id = data.userId;
 					globalPrefs.setUser(data.userId);
 					$location.path(globalPrefs.getUserLinks("user"));
 				}
@@ -71,6 +73,8 @@ ctrl.controller("UserCtrl",["$scope", "$http", "$location", "$cookies", "$routeP
 			},
 			function(data){
 				if(!data.hasOwnProperty("error")){
+					globalPrefs.setUser(data.currentUser.id);
+					$location.path(globalPrefs.getUserLinks("user"));
 					$scope.user = data.currentUser;
 				} else {
 					$cookies.UUID = null;
@@ -96,9 +100,21 @@ ctrl.controller("UserCtrl",["$scope", "$http", "$location", "$cookies", "$routeP
 ]);
 ctrl.controller("GuildListCtrl",["$scope", "$http", "$location", "$cookies", "$routeParams", "langPack", "userFunctions", "globalPrefs",
 	function ($scope, $http, $location, $cookies, $routeParams, langPack, userFunctions, globalPrefs) {
+		$scope.data = {};
 		langPack.get({lang : "ru"}, function(data){
 			$scope.langPackage = data;
 		});
+		$http({
+				method: "POST",
+				url : "/guild/list"
+			})
+			.success(function (data){
+				console.log(data);
+				$scope.data.guilds = data;
+			});
+		$scope.view = function (id){
+			$location.path("/guild/" + id);
+		}
 		$scope.meeting = function (){
 			$location.path(globalPrefs.getUserLinks("meeting"));
 		}

@@ -13,11 +13,10 @@ exports.addGuild = function(req, res){
 					userId : req.body.user.id,
 					groupId : guilds[0].id
 				}), function (err, members) {
-					console.log(err);
-					if (err != null) {
+					if (err == null) {
 						res.json({
 							guild : {
-								id : guilds[0].id
+								guildId : guilds[0].id
 							}
 						});
 					} else {
@@ -54,6 +53,12 @@ exports.getGuild = function(req, res){
 	} else {
 		res.json({error : "ERROR"});
 	}
+}
+
+exports.getGuilds = function(req, res){
+	req.models.group.find({}, function (err, guilds){
+		res.json(guilds);
+	})
 }
 
 function prePareGuildModel(model){

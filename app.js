@@ -49,6 +49,7 @@ app.post('/user/registration', userApi.registration);
 
 app.get('/user/:uuid/:id', userApi.loginUser);
 app.get('/guild/:id', guildApi.getGuild);
+app.post('/guild/list', guildApi.getGuilds);
 app.post('/guild/add', guildApi.addGuild);
 app.post('/user/checkuser', userApi.checkUser);
 
