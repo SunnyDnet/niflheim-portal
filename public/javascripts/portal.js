@@ -17,7 +17,7 @@ portal.config(["$routeProvider",
 				templateUrl : "/templates/userprofile.html",
 				controller : "UserCtrl"
 			}).
-			when("/user/:id/guilds",{
+			when("/user/:id/guild/list",{
 				templateUrl : "/templates/guildlist.html",
 				controller : "GuildListCtrl"
 			}).
@@ -27,7 +27,11 @@ portal.config(["$routeProvider",
 			}).
 			when("/guild/:id",{
 				templateUrl : "/templates/guild.html",
-				controller : "GuildAddCtrl"
+				controller : "GuildCrtl"
+			}).
+			when("/guild/:id/meeting/add",{
+				templateUrl : "/templates/addmeeting.html",
+				controller : "MeetingAddCtrl"
 			}).
 			otherwise({
 				redirecTo: '/'

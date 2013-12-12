@@ -8,6 +8,7 @@ var express = require('express'),
 	routes = require('./routes'),
 	userApi = require('./routes/userapi'),
     guildApi = require('./routes/guildapi'),
+    meetingApi = require('./routes/meetingapi'),
 	http = require('http'),
 	path = require('path');
 
@@ -37,6 +38,9 @@ app.use(database.express("mysql://root@127.0.0.1:3306/portal", {
         db.load('./db/groupmember',function(){
             models.groupmember = db.models.groupmember;           
         });
+        db.load('./db/meetingmember',function(){
+            models.meetingmember = db.models.meetingmember;           
+        });
         next();
     }
 }));
@@ -51,6 +55,8 @@ app.get('/user/:uuid/:id', userApi.loginUser);
 app.get('/guild/:id', guildApi.getGuild);
 app.post('/guild/list', guildApi.getGuilds);
 app.post('/guild/add', guildApi.addGuild);
+app.post('/meeting/add', meetingApi.addMeeting);
+app.post('/meeting/status', meetingApi.setStatus);
 app.post('/user/checkuser', userApi.checkUser);
 
 http.createServer(app).listen(app.get('port'), function(){

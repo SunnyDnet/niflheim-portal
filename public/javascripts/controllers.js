@@ -28,8 +28,6 @@ ctrl.controller("RegistrCtrl", ["$scope", "$http", "$location", "$cookies", "lan
 			$http({
 				method: "POST",
 				url : "/user/registration",
-				xsrfHeaderName : "UUID",
-				xsrfCookieName : "UUID",
 				data : $scope.user,
 			}).
 			success(function(data){
@@ -37,7 +35,7 @@ ctrl.controller("RegistrCtrl", ["$scope", "$http", "$location", "$cookies", "lan
 					if (typeof(data.user.userId) === "number"){
 						globalPrefs.setUser(data.user.userId);
 						$cookies.UUID = data.user.UUID;
-						$cookies.id = data.user.userId;
+						$cookies.userId = data.user.userId.toString();
 						$location.path(globalPrefs.getUserLinks("user"));
 					}
 				}
@@ -51,8 +49,8 @@ ctrl.controller("RegistrCtrl", ["$scope", "$http", "$location", "$cookies", "lan
 			})
 			.success(function(data){
 				if(data.exist != undefined && data.exist != null && data.exist === true){
+					$cookies.userId = data.userId.toString();
 					$cookies.UUID = data.UUID;
-					$cookies.id = data.userId;
 					globalPrefs.setUser(data.userId);
 					$location.path(globalPrefs.getUserLinks("user"));
 				}
@@ -172,12 +170,36 @@ ctrl.controller("GuildAddCtrl",["$scope", "$http", "$location", "$cookies", "$ro
 		}
 	}
 ]);
-ctrl.controller("GuildCrtl",["$scope", "$http", "$location", "$cookies", "$routeParams", "langPack", "userFunctions", "globalPrefs",
-	function ($scope, $http, $location, $cookies, $routeParams, langPack, userFunctions, globalPrefs) {
+ctrl.controller("GuildCrtl",["$scope", "$http", "$location", "$cookies", "$routeParams", "langPack", "userFunctions", "globalPrefs", "guildFunctions",
+	function ($scope, $http, $location, $cookies, $routeParams, langPack, userFunctions, globalPrefs, guildFunctions) {
+		$scope.data = {};
 		langPack.get({lang : "ru"}, function(data){
 			$scope.langPackage = data;
 		});
-		$scope.guild = {};
+		guildFunctions.get({
+			id : $routeParams.id
+		}, function (data){
+			console.log(data);
+			$scope.data = data;
+		})
+		$scope.status = function (id, status){
+			$http({
+				url : "meeting/status",
+				method : "POST",
+				data : {
+					meetingId : id,
+					userId : $cookies.userId,
+					userUUID : $cookies.UUID,
+					status : status
+				}
+			}).success(function(data){
+
+			});
+
+		}	
+		$scope.addmeeting = function (){
+			$location.path("/guild/" + $routeParams.id + "/meeting/add");
+		}		
 		$scope.meeting = function (){
 			$location.path(globalPrefs.getUserLinks("meeting"));
 		}
@@ -192,4 +214,44 @@ ctrl.controller("GuildCrtl",["$scope", "$http", "$location", "$cookies", "$route
 		}
 	}
 ]);
+ctrl.controller("MeetingAddCtrl",["$scope", "$http", "$location", "$cookies", "$routeParams", "langPack", "userFunctions", "globalPrefs", 
+	function ($scope, $http, $location, $cookies, $routeParams, langPack, userFunctions, globalPrefs) {
+		$scope.data = {
+			meeting : {}
+		};
+		langPack.get({lang : "ru"}, function(data){
+			$scope.langPackage = data;
+		});
+		$scope.addMeeting = function(){
+			$http({
+				method: "POST",
+				url : "/meeting/add",
+				data : {
+					meeting : $scope.data.meeting,
+					guildId : $routeParams.id
+				}
+			})
+			.success(function (data){
+				if (data.guild != undefined && data.guild != null){
+					if (typeof(data.guild.guildId) === "number"){
+						$location.path("/guild/" + data.guild.guildId);
+					}
+				}
+			});
+		}
+		$scope.meeting = function (){
+			$location.path(globalPrefs.getUserLinks("meeting"));
+		}
+		$scope.guilds = function (){
+			$location.path(globalPrefs.getUserLinks("guilds"));
+		}
+		$scope.calendar = function (){
+			$location.path(globalPrefs.getUserLinks("calendar"));
+		}
+		$scope.user = function (){
+			$location.path(globalPrefs.getUserLinks("user"));
+		}
+	}
+]);
+
 

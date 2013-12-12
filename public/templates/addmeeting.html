@@ -1,0 +1,46 @@
+﻿<div class="wrapper">
+	<div class="header">
+		<div class="left">
+			<div class="logo" onclick="location.href=''">
+				<div class="project"></div>
+				<div class="thirteen"></div>
+			</div>
+		</div>
+		<div class="menu">
+			<ul>
+				<li class="menuitem" ng-click="meetings()" ng-bind="langPackage.userMeetings"></li>
+				<li class="menuitem" ng-click="calander()" ng-bind="langPackage.userCalander"></li>
+				<li class="menuitem" ng-click="guilds()" ng-bind="langPackage.userGuilds"></li>
+			</ul>
+		</div>
+		<div class="right">
+			<div class="account" ng-click="myprofile()">
+				<span class="active" ng-bind="user.nickName" style="float:left;"></span>
+				<div class="avatar" style="background-image:url(images/avatars/katarina.jpg)"></div>
+			</div>
+		</div>
+	</div>
+	<div class="middle">
+		<div class="content">
+			
+			<form name="addmeeting" class="addmeeting">
+				<div class="addmeetGroup">
+					<p>Добавь встречу в свою гильдию.</p>
+					<p class="error"></p>
+					<input type="text" name="mname" placeholder="Название встречи" tabindex="1" ng-model="data.meeting.name"/><br/>
+					<select name="mtype" tabindex="2">
+							<option value="0">Тип встречи</option>
+							<option value="1">Тип 1</option>
+							<option value="2">Тип 2</option>
+							<option value="3">Тип 3</option>
+					</select><br/>
+					<input type="text" class="year" name="myear" placeholder="ГГГГ" maxlength="4" tabindex="3" ng-model="data.meeting.YYYY"/>
+					<input type="text" class="month" name="mmonth" placeholder="ММ" maxlength="4" tabindex="4" ng-model="data.meeting.MM"/>
+					<input type="text" class="day" name="mday" placeholder="ДД" maxlength="2" tabindex="5" ng-model="data.meeting.DD"/><br/>
+					<input type="text" name="mdesc" placeholder="Описание встречи" tabindex="6" ng-model="data.meeting.desc"/><br/>
+					<input type="submit" class="addmeetEnd" value="Добавить" tabindex="7" ng-click="addMeeting()"/>
+				</div>
+			</form>	
+		</div>
+	</div>
+</div>

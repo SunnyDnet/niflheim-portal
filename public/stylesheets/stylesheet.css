@@ -596,12 +596,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .guild .guildcontent .meetings .meetingitem .post .date .day {
 	font-size:20px;
-	margin-top:4px;
+	margin-top:10px;
 	letter-spacing:-1px;
 }
 
 .guild .guildcontent .meetings .meetingitem .post .date .month {
-	margin-top:-1px;
+	margin-top:11px;
 }
 
 .guild .guildcontent .meetings .meetingitem .post .type{

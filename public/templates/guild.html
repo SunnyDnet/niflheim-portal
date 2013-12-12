@@ -26,43 +26,28 @@
 			<div class="guild">
 				<div class="guildheader">
 					<div class="logo" style="background-image:url(images/headers/emperium.png)"></div>
-					<div class="namebar"><p class="name">Emperium<p><p class="status">Cкоро официальное открытие первого сезона</p></div>
+					<div class="namebar"><p class="name" ng-bind="data.guild.groupName"><p><p class="status">Cкоро официальное открытие первого сезона</p></div>
 				</div>
 				<div class="guildcontent">
-					<div class="description">
-						Организация игроков в гильдии и возможность принимать участие в «Войне за Империум» (War of Emperium) — одна из основных концепций высокоуровневого игрового контента в Ragnarök Online.
-						Суть сражений заключаются в возможности захвата и защиты замков. В сердце каждого замка спрятан огромный камень Империум (Emperium), разбив который, атакующая гильдия захватывает замок и переходит к обороне. Сражения проходят, как правило, по определенным дням недели и в определенное время. Обычно, война длится два часа и затрагивает только определённые локации (замки), за которые и проходят сражения.
-						Обладание замком дает гильдии, помимо социального статуса, возможность посещать специальное подземелье (Guild Dungeon), где водятся сильные, но и выгодные для прокачки монстры. Также раз в день в специальной комнате-сокровищнице замка появляются сундуки с редкими предметами. Количество сундуков зависит от экономики. Войти в комнату может только глава гильдии, владеющей замком. Экономика зависит от вложений, при перезахвате замка уровень экономики уменьшается. 
-					</div>
+					<div class="description" ng-bind="data.guild.description"></div>
 					
 					<div class="leftblock">
-						<div class="addmeet" onclick="location.href='add_meeting.html'">Добавить встречу</div>
+						<div class="addmeet" ng-click="addmeeting()">Добавить встречу</div>
 					</div>
 					<div class="meetings">
 						<div class="meetingitem">
-							<div class="post">
-								<div class="date"><p class="day">30</p><p class="month">сен</p></div>
-								<div class="type"></div>
-								<div class="accept"></div>
-								<div class="wait"></div>
-								<div class="cansel"></div>
-								<br/>
-								<div class="name" onclick="location.href='meeting_01.html'"><h3>Название будущей встречи</h3></div>
-								<div class="group"><div class="groupname">Время:</div><span>10:00 - 20:00</span></div>
-								<div class="group"><div class="groupname">Описание:</div><span>Здесь будет описание встречи,а так же вода и еещё немного воды и прочая хуятень по поводу встречи, расписание ипрограмма встречи будет совершенно не здесь.</span></div>
-							</div>
-						</div>
-						<div class="meetingitem">
-							<div class="post">
-								<div class="date"><p class="day">25</p><p class="month">сен</p></div>
-								<div class="type"></div>
-								<div class="accept"></div>
-								<div class="wait"></div>
-								<div class="cansel"></div>
-								<br/>
-								<div class="name"><h3>Название будущей встречи чуть ранее</h3></div>
-								<div class="group"><div class="groupname">Время:</div><span>10:00 - 20:00</span></div>
-								<div class="group"><div class="groupname">Описание:</div><span>Здесь будет описание встречи,а так же вода и еещё немного воды и прочая хуятень по поводу встречи, расписание ипрограмма встречи будет совершенно не здесь.</span></div>
+							<div ng-repeat="meeting in data.meetingList">
+								<div class="post">
+									<div class="date"><p class="day" ng-bind="meeting.day"></p><p class="month">сен</p></div>
+									<div class="type"></div>
+									<div class="accept" ng-click="status(meeting.id,2)"></div>
+									<div class="wait" ng-click="status(meeting.id,1)"></div>
+									<div class="cansel" ng-click="status(meeting.id,0)"></div>
+									<br/>
+									<div class="name" ng-click="meetingDetails(meeting.id)"><h3 ng-bind="meeting.name"></h3></div>
+									<div class="group"><div class="groupname">Время:</div><span ng-bind="meeting.time"></span></div>
+									<div class="group"><div class="groupname">Описание:</div><span ng-bind="meeting.description"></span></div>
+								</div>
 							</div>
 						</div>
 					</div>

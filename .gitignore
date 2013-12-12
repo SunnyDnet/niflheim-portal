@@ -1,1 +1,5 @@
 node_modules
+
+/public/javascripts/Trebuchet_MS_400.font.js
+
+/public/javascripts/cufon-yui.js

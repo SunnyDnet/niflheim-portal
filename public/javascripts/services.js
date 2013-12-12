@@ -16,6 +16,21 @@ portalServices.factory("langPack", ["$resource",
 		);
 	}]);
 
+portalServices.factory("guildFunctions", ["$resource", 
+	function($resource){
+		return $resource("/guild/:id",
+			{id:"@id"},
+			{get:
+				{
+					method:"GET",
+					params:{
+						id:"@id",
+					}
+				}
+			}
+		);
+	}]);
+
 portalServices.factory("userFunctions", ["$resource", 
 	function($resource){
 		return {
@@ -69,7 +84,7 @@ portalServices.factory("globalPrefs", [
 						link = "/user/" + _userId + "/meeting/";
 						break;
 					case "guilds":
-						link = "/user/" + _userId + "/guilds/";
+						link = "/user/" + _userId + "/guild/list";
 						break;
 					case "calendar": 
 						link = "/user/" + _userId + "/calendar/";
